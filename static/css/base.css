@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&family=Press+Start+2P&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;  
+    border: none;  
+}
+
+html, body {
+    overflow-x:hidden;
+    width: 100%;
+    color: #fff;
+    }
+
+body{
+    background-color: green;
+}
+
+.header-top-space{
+    margin-top: 100px;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
