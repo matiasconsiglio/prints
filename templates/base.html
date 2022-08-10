@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
 
-    {% block meta %}
+    <!-- {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,12 +27,88 @@
     {% endblock %}
 
     {% block extra_js %}
-    {% endblock %}
+    {% endblock %} -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Futuro Berg Prints">
+    <meta name="keywords" content="Prints, photography, profesional photographer">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/style.css' %} ">
 
     <title>Prints {% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
-    <header class="container-fluid fixed-top"></header>
+  <body class="d-flex flex-column h-100">
+    <header class="container-fluid fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">Prints by</a>
+          <h1 class="site-title">
+            <a href="https://www.futuroberg.com/" title="Futuro Berg" rel="home">
+              <img class="logo-retina" src="https://www.futuroberg.com/wp-content/uploads/2018/10/new-logo-site-small-1.png" alt="" width="158" height="46"/>
+            </a>
+          </h1>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                  <a href="" class="nav-link">Product Management</a>
+                {% endif %}
+              </li>
+              <li class="nav-item dropdown">
+                <a href="" class="nav-link">My Profile</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+              </li>
+                {% endif %}
+            <form class="flex" method="GET" action="">
+              <div class="input-group w-100">
+                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for prints">
+                <div class="input-group-append">
+                  <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+            <div class="text-center">
+              <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+              <p class="my-0">
+                {% if grand_total %}
+                  ${{ grand_total|floatformat:2 }}
+                {% else %}
+                $0.00
+                {% endif %}
+              </p>
+            </div>
+          </a>
+        </div>
+      </nav>
+
+    </header>
+
 
     {% if messages %}
         <div class="message-container"></div>
