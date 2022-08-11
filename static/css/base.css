@@ -7,15 +7,20 @@
 }
 
 html, body {
+    background: url('  https://www.futuroberg.com/wp-content/uploads/2016/04/Periferia_SP_Bitchslap_FuturoBerg-8-1920x1280.jpg') no-repeat center center fixed;
+    background-size: cover;
     overflow-x:hidden;
     width: 100%;
     color: #fff;
     }
 
 body{
-    background-color: green;
+    background-color: #fff;
 }
 
+.header{
+    background-color: transparent !important;
+}
 .header-top-space{
     margin-top: 100px;
 }
@@ -27,3 +32,4 @@ body{
     height: 1.5rem;
     width: 1.5rem;
   }
+
