@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light header">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Prints by</a>
+      <h1>
+        <a href="https://www.futuroberg.com/" title="Futuro Berg" target=”_blank”>
+          <img src="https://www.futuroberg.com/wp-content/uploads/2018/10/new-logo-site-small-1.png" alt="" width="158" height="46"/>
+        </a>
+      </h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-black" href="#" id="prints" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Prints
+            </a>
+            <div class="dropdown-menu border-0 header" aria-labelledby="prints">
+                <a href="" class="dropdown-item text-black">By Size</a>
+                <a href="" class="dropdown-item text-black">By Paper Type</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-black" href="#" id="printsoffers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Offers
+            </a>
+            <div class="dropdown-menu border-0 header" aria-labelledby="printsoffers">
+                <a href="" class="dropdown-item text-black">Deals</a>
+                <a href="" class="dropdown-item text-black">Frames</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+                <a href="" class="nav-link text-black">Management</a>
+              {% endif %}
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link text-black">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link text-black" href="{% url 'account_signup' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-black" href="{% url 'account_login' %}">Login</a>
+            </li>
+            {% endif %}
+            <form class="flex" method="GET" action="">
+              <div class="input-group w-100">
+                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for prints">
+                <div class="input-group-append">
+                  <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+      </div>
+      <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black cart{% endif %}" href="">
+        <div class="text-center">
+          <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+          <p class="my-0">
+            {% if grand_total %}
+              ${{ grand_total|floatformat:2 }}
+            {% else %}
+            $0.00
+            {% endif %}
+          </p>
+        </div>
+      </a>
+    </div>
+  </nav>
