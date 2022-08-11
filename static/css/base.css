@@ -33,3 +33,11 @@ body{
     width: 1.5rem;
   }
 
+.shop-now-button{
+    color: lightgray;
+    font-size: medium;
+    background-color: grey;
+    border-radius: 5%;
+    border-color: grey;
+    float: right;
+}
