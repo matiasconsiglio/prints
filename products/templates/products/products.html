@@ -2,58 +2,41 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
 {% endblock %}
 
 {% block content %}
-    <div class="container event-holder h-100 header-top-space">
-        <div class="row space-top margin-bottom">
-            <div class="col-12 mt-3 left">
-                <div class="row">
-                    <div class="col">
-                        {{ products }}
-                    </div>
-                <!-- {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
+    <div class="container header-top-space">
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0">
+                                {% if "placeholder" in product.image.url %}
+                                <img class="card-img-top img-fluid"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
-                                <img class="card-img-top" alt="event" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top img-fluid" alt="event" src=" {{ product.image.url }}">
                                 {% endif %}
-                            </div> -->
-                            <!-- <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                <h2 class="card-title text-center">{{ post.title }}</h2>
-                            </a> -->
-                        <!-- </div>
-                    </div>
-                </div> 
-                {% if forloop.counter|divisibleby:3 %}-->
-                </div>
-                <!-- <div class="row">
-                {% endif %}
+                            <div class="card-body pb-0 bg-white border-0 text-left text-black">
+                                <p class="mb-0 text-black">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left text-black">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                        {% if product.rating %}
+                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                 {% endfor %}
-                </div> -->
+                </div>
             </div>
         </div>
-        <!-- {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="next-prev">←</a></li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="next-prev">→</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %} -->
     </div>
 {% endblock %}
