@@ -16,8 +16,8 @@
                 Prints
             </a>
             <div class="dropdown-menu border-0 header" aria-labelledby="prints">
-                <a href="" class="dropdown-item text-black">Landscape</a>
-                <a href="" class="dropdown-item text-black">Street Art</a>
+                <a href="{% url 'products' %}?category=landscape" class="dropdown-item text-black">Landscape</a>
+                <a href="{% url 'products' %}?category=street_art" class="dropdown-item text-black">Street Art</a>
                 <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
             </div>
           </li>
@@ -32,7 +32,7 @@
                 <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-black" href="#" id="printsoffers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Offers
             </a>
@@ -40,7 +40,7 @@
                 <a href="" class="dropdown-item text-black">Deals</a>
                 <a href="" class="dropdown-item text-black">Frames</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
