@@ -16,8 +16,19 @@
                 Prints
             </a>
             <div class="dropdown-menu border-0 header" aria-labelledby="prints">
-                <a href="" class="dropdown-item text-black">By Size</a>
-                <a href="" class="dropdown-item text-black">By Paper Type</a>
+                <a href="" class="dropdown-item text-black">Landscape</a>
+                <a href="" class="dropdown-item text-black">Street Art</a>
+                <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-black" href="#" id="printsoffers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Order by
+            </a>
+            <div class="dropdown-menu border-0 header" aria-labelledby="printsoffers">
+                <a href="" class="dropdown-item text-black">Category</a>
+                <a href="" class="dropdown-item text-black">Price</a>
+                <a href="" class="dropdown-item text-black">Rating</a>
                 <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
             </div>
           </li>
