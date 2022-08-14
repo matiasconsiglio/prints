@@ -26,9 +26,9 @@
                 Order by
             </a>
             <div class="dropdown-menu border-0 header" aria-labelledby="printsoffers">
-                <a href="" class="dropdown-item text-black">Category</a>
-                <a href="" class="dropdown-item text-black">Price</a>
-                <a href="" class="dropdown-item text-black">Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item text-black">Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item text-black">Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item text-black">Rating</a>
                 <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
             </div>
           </li>
