@@ -23,7 +23,8 @@ body{
 }
 
 .header{
-    background-color: rgba(222, 222, 222, 0.9)
+    background-color: rgba(222, 222, 222, 0.9);
+    border-radius: 1%;
 }
 .header-top-space{
     margin-top: 100px;
