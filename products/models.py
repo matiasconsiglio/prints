@@ -23,9 +23,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    # paper_type = models.TextChoices()
-    # print_size = models.TextChoices()
+    price = models.PositiveIntegerField(default=0)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -33,3 +31,29 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Size(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Paper(models.Model):
+    
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class ProductSpec(models.Model):
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    size = models.ForeignKey(Size, on_delete=models.CASCADE)
+    paper = models.ForeignKey(Paper, on_delete=models.CASCADE)
+    price = models.PositiveIntegerField(default=0)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.product.name

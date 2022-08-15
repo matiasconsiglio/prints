@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container header-top-space">
-            <div class="row">
+            <div class="row container-fluid">
                 <div class="col-12 col-lg-6 offset-lg-2">
                     <div class="image-container my-5">
                         {% if "placeholder" in product.image.url %}
@@ -25,6 +25,29 @@
                     <div class="product-details-container mb-5 mt-md-5">
                         <p class="mb-0">{{ product.name }}</p>
                         <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Paper Size</th>
+                                <td>
+                                    {% for size in sizes %}
+                                        <button class="btn btn-lg choose-color" data-color="{{size.size__id}}">{{size.size__name}}</button>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Paper Type</th>
+                                <td>
+                                    {% for paper in papers %}
+                                    <button data-price="{{size.price}}" class="btn btn-outline-secondary btn-sm choose-size size{{paper.size__id}}">{{paper.paper__name}}</button>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <th>$ <span class="product-price-{{data.id}}">{{data.productspec_set.first.price}}</span></th>
+                            </tr>
+                        </table>
+                        <hr/>
                         {% if product.rating %}
                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                         {% else %}

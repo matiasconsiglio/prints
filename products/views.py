@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category
+from .models import Product, Category, ProductSpec
 
 # Create your views here.
 
@@ -64,9 +64,13 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    sizes = ProductSpec.objects.filter(product=product).values('size__id', 'size__name').distinct()
+    papers = ProductSpec.objects.filter(product=product).values('paper__id', 'paper__name', 'price', 'size__id').distinct()
 
     context = {
         'product': product,
+        'sizes': sizes,
+        'papers': papers,
     }
 
     return render(request, 'products/product_detail.html', context)
