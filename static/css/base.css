@@ -65,3 +65,25 @@ body{
     height: 275px;
     width: auto;
 }
+
+.product-detail-width{
+    width: 35%;
+}
+
+@media (max-width: 1400px){
+    .product-detail-width{
+        width: 45%;
+    }
+}
+
+@media (max-width: 1000px){
+    .product-detail-width{
+        width: 65%;
+    }
+}
+
+@media (max-width: 800px){
+    .product-detail-width{
+        width: 80%;
+    }
+}

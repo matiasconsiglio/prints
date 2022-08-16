@@ -21,8 +21,8 @@
                                     <img class="card-img-top img-fluid" alt="event" src=" {{ product.image.url }}">
                                 </a>
                                 {% endif %}
-                            <div class="card-body pb-0 bg-white border-0 text-left text-black">
-                                <p class="mb-0 text-black">{{ product.name }}</p>
+                            <div class="card-body pb-0 header border-0 text-left text-black">
+                                <p class="mt-3 text-black">{{ product.description }}</p>
                                 {% if product.category %}
                                 <p class="small mt-2 mb-1">
                                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -31,10 +31,9 @@
                                 </p>
                                 {% endif %}
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left text-black">
+                            <div class="card-footer header pt-0 border-0 text-left text-black">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                                         {% if product.rating %}
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                         {% else %}
