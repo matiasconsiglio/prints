@@ -20,9 +20,17 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+class ProductSpecAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+        'size',
+        'paper',
+        'price',
+    )
+    ordering = ('product',)
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ProductSpec)
+admin.site.register(ProductSpec, ProductSpecAdmin)
 admin.site.register(Size)
 admin.site.register(Paper)
