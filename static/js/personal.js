@@ -35,4 +35,10 @@ $(document).ready(function(){
     $(".product-price-variation").text(_price);
 
 
+    $('.btt-link').on('click',function() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+    })
+
 });
+

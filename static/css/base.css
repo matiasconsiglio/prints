@@ -75,6 +75,19 @@ body{
     border-color: black;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+
 @media (max-width: 1400px){
     .product-detail-width{
         width: 45%;
