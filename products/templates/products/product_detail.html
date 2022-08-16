@@ -28,7 +28,7 @@
                                 <th>Paper Size</th>
                                 <td>
                                     {% for size in sizes %}
-                                        <button class="btn btn-outline-secondary btn-sm choose-color">{{size.size__name}}</button>
+                                        <button product-size="{{size.size__id}}" class="btn btn-outline-secondary btn-sm size">{{size.size__name}}</button>
                                     {% endfor %}
                                 </td>
                             </tr>
@@ -36,13 +36,13 @@
                                 <th>Paper Type</th>
                                 <td>
                                     {% for paper in papers %}
-                                    <button data-price="{{size.price}}" class="btn btn-outline-secondary btn-sm">{{paper.paper__name}}</button>
+                                    <button product-price="{{paper.price}}" class="btn btn-outline-secondary btn-sm paper size{{paper.size__id}}">{{paper.paper__name}}</button>
                                     {% endfor %}
                                 </td>
                             </tr>
                             <tr>
                                 <th>Price</th>
-                                <th><span class="lead mb-0 text-left font-weight-bold">{{product.productspec_set.first.price}}</span> kr.</th>
+                                <th><span class="lead mb-0 text-left font-weight-bold product-price-variation">{{product.productspec_set.first.price}}</span> kr.</th>
                             </tr>
                         </table>
                         <hr/>
