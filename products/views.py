@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.http import JsonResponse
 from .models import Product, Category, ProductSpec
+
 
 # Create your views here.
 
@@ -58,12 +60,12 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, id):
     """
     A view to show individual product details
     """
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = Product.objects.get(id=id)
     sizes = ProductSpec.objects.filter(product=product).values('size__id', 'size__name').distinct()
     papers = ProductSpec.objects.filter(product=product).values('paper__id', 'paper__name', 'price', 'size__id').distinct()
 
@@ -75,3 +77,27 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+def add_to_cart(request):
+    """ a d """
+    del request.session['cartdata']
+    cart_p = {}
+    cart_p[str(request.GET['id'])] = {
+        'name': request.GET['name'],
+        'qty': request.GET['qty'],
+        'price': request.GET['price'],
+        'size': request.GET['size'],
+        'paper': request.GET['paper']
+    }
+    if 'cartdata' in request.session:
+        if str(request.GET['id']) in request.session['cartdata']:
+            cart_data = request.session['cartdata']
+            cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
+            cart_data.update(cart_data)
+            request.session['cartdata'] = cart_data
+        else:
+            cart_data = request.session['cartdata']
+            cart_data.update(cart_data)
+            request.session['cartdata'] = cart_data
+    else:
+        request.session['cartdata'] = cart_p
+    return JsonResponse({'data': request.session['cartdata']})

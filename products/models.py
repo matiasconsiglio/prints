@@ -23,8 +23,6 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.PositiveIntegerField(default=0)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     objects = models.Manager()
@@ -52,7 +50,7 @@ class ProductSpec(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     paper = models.ForeignKey(Paper, on_delete=models.CASCADE)
-    price = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField(null=True, default=0)
     objects = models.Manager()
 
     def __str__(self):
