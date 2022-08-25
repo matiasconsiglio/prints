@@ -1,11 +1,23 @@
 from decimal import Decimal
 from django.conf import settings
+from products.models import Product, ProductSpec
 
 def bag_contents(request):
 
-    bag_items = []
+    cart_items = []
     total = 0
     product_count = 0
+    # cart = request.session.get('cart', {})
+
+    # for product_spec_id, product_qty in cart.items():
+    #     product_price = int(ProductSpec.price)
+    #     total += product_qty * product_price
+    #     product_count += product_qty
+    #     cart_items.append({
+    #         'product_spec_id': product_spec_id,
+    #         'product_qty': product_qty,
+    #         'product': product,
+    #     })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -17,7 +29,7 @@ def bag_contents(request):
     grand_total = delivery + total
     
     context = {
-        'bag_items': bag_items,
+        'cart_items': cart_items,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,

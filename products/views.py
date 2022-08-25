@@ -79,24 +79,37 @@ def product_detail(request, id):
 
 def add_to_cart(request):
     """ a d """
-
-    paper_id = request.GET['paper']
-    size_id = request.GET['size']
+    del request.session['bag']
+    paper_id = request.GET['paper-id']
+    size_id = request.GET['size-id']
     product_id = request.GET['id']
     product_qty = int(request.GET['qty'])
+    product_price = request.GET['price']
+    product_name = request.GET['name']
+    product_size = request.GET['size']
+    product_paper = request.GET['paper']
     product_spec = ProductSpec.objects.filter(paper__id=paper_id, size__id=size_id, product__id=product_id).first()
     product_spec_id = str(product_spec.id)
+    cart_data = {}
 
-    cart = request.session.get('cart', {})
-    if product_spec_id in list(cart.keys()):
-        cart[product_spec_id] += product_qty
+    cart_data[product_spec_id] = {
+        'qty': product_qty,
+        'price': product_price,
+        'name': product_name,
+        'size': product_size,
+        'paper': product_paper
+    }
+    bag = request.session.get('bag', {})
+
+    if product_spec_id in list(bag.keys()):
+
+        bag[product_spec_id]['qty']+=product_qty
         print("a")
+
     else:
-        cart[product_spec_id] = product_qty
+        bag.update(cart_data)
         print("b")
-    request.session['cart'] = cart
-    final = cart
-    print(final)
-    print(product_qty)
     
-    return JsonResponse({'data': final, 'totalitems':len(request.session['cart'])})
+    request.session['bag'] = bag
+
+    return JsonResponse({'data': bag})

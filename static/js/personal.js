@@ -56,8 +56,10 @@ $(document).ready(function(){
 		var _qty=$(".product-qty-").val();
 		var _productId=$(".product-id-").val();
 		var _productName=$(".product-name-").val();
-		var _productSize=$(".size-id").val();
-		var _productPaper=$(".paper-id").val();
+		var _productSizeId=$(".size-id").val();
+		var _productPaperId=$(".paper-id").val();
+		var _productSize=$(".s").text();
+		var _productPaper=$(".p").text();
 		var _productPrice=$(".product-price-variation").text();
 		//Ajax
 		$.ajax({
@@ -69,6 +71,8 @@ $(document).ready(function(){
 				'price':_productPrice,
 				'size':_productSize,
 				'paper':_productPaper,
+				'paper-id':_productPaperId,
+				'size-id':_productSizeId
 			},
 			dataType:'json',
 			beforeSend:function(){
