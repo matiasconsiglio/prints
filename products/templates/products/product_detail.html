@@ -27,7 +27,7 @@
                                 <th>Paper Size</th>
                                 <td>
                                     {% for size in sizes %}
-                                        <button product-size="{{size.size__id}}" class="btn btn-outline-secondary btn-sm size">{{size.size__name}}</button>
+                                        <button product-size="{{size.size__id}}" size-id="{{size.size__id}}" class="btn btn-outline-secondary btn-sm size">{{size.size__name}}</button>
                                     {% endfor %}
                                 </td>
                             </tr>
@@ -35,7 +35,7 @@
                                 <th>Paper Type</th>
                                 <td>
                                     {% for paper in papers %}
-                                    <button product-price="{{paper.price}}" class="btn btn-outline-secondary btn-sm paper size{{paper.size__id}}">{{paper.paper__name}}</button>
+                                    <button product-price="{{paper.price}}" paper-id="{{paper.paper__id}}" class="btn btn-outline-secondary btn-sm paper size{{paper.size__id}}">{{paper.paper__name}}</button>
                                     {% endfor %}
                                 </td>
                             </tr>
@@ -53,7 +53,9 @@
                                         <div class="input-group-append">
                                             <input type="hidden" class="product-id-" value="{{product.id}}" />
                                             <input type="hidden" class="product-name-" value="{{product.name}}" />
-                                            <button class="btn btn-black rounded-0 add-to-cart" data-index="{{product.id}}" type="button" id="addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                            <input type="hidden" class="paper-id" />
+                                            <input type="hidden" class="size-id" />
+                                            <button class="btn btn-black rounded-0 add-to-cart" data-index="{{product.id}}" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
                                         </div>
                                     </div>
                                 </div>

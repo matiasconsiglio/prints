@@ -17,6 +17,8 @@ $(document).ready(function(){
 
         var _price=$(".size"+_size).first().attr('product-price');
 		$(".product-price-variation").text(_price);
+		var _id=$(this).attr('size-id');
+		$(".size-id").val(_id);
 	});
 
     $(".paper").on('click',function(){
@@ -24,8 +26,15 @@ $(document).ready(function(){
 		$(this).addClass('active p');
 
 		var _price=$(this).attr('product-price');
+		var _id=$(this).attr('paper-id');
 		$(".product-price-variation").text(_price);
+		$(".paper-id").val(_id);
 	})
+
+	var _id=$(".paper").attr('paper-id');
+	var _id=$(".size").attr('size-id');
+	$(".size-id").val(_id);
+	$(".paper-id").val(_id);
 
 	$(".size").first().addClass('active s');
     var _size=$(".size").first().attr('product-size');
@@ -47,8 +56,8 @@ $(document).ready(function(){
 		var _qty=$(".product-qty-").val();
 		var _productId=$(".product-id-").val();
 		var _productName=$(".product-name-").val();
-		var _productSize=$(".s").text();
-		var _productPaper=$(".p").text();
+		var _productSize=$(".size-id").val();
+		var _productPaper=$(".paper-id").val();
 		var _productPrice=$(".product-price-variation").text();
 		//Ajax
 		$.ajax({
@@ -68,9 +77,9 @@ $(document).ready(function(){
 			success:function(res){
 				$(".cart-list").text(res.totalitems);
 				_vm.attr('disabled',false);
+				console.log(res)
 			}
 		})
-		// console.log(_qty,_productId,_productName);
 
 
 	});

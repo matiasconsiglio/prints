@@ -79,25 +79,24 @@ def product_detail(request, id):
 
 def add_to_cart(request):
     """ a d """
-    del request.session['cartdata']
-    cart_p = {}
-    cart_p[str(request.GET['id'])] = {
-        'name': request.GET['name'],
-        'qty': request.GET['qty'],
-        'price': request.GET['price'],
-        'size': request.GET['size'],
-        'paper': request.GET['paper']
-    }
-    if 'cartdata' in request.session:
-        if str(request.GET['id']) in request.session['cartdata']:
-            cart_data = request.session['cartdata']
-            cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
-            cart_data.update(cart_data)
-            request.session['cartdata'] = cart_data
-        else:
-            cart_data = request.session['cartdata']
-            cart_data.update(cart_data)
-            request.session['cartdata'] = cart_data
+
+    paper_id = request.GET['paper']
+    size_id = request.GET['size']
+    product_id = request.GET['id']
+    product_qty = int(request.GET['qty'])
+    product_spec = ProductSpec.objects.filter(paper__id=paper_id, size__id=size_id, product__id=product_id).first()
+    product_spec_id = str(product_spec.id)
+
+    cart = request.session.get('cart', {})
+    if product_spec_id in list(cart.keys()):
+        cart[product_spec_id] += product_qty
+        print("a")
     else:
-        request.session['cartdata'] = cart_p
-    return JsonResponse({'data': request.session['cartdata']})
+        cart[product_spec_id] = product_qty
+        print("b")
+    request.session['cart'] = cart
+    final = cart
+    print(final)
+    print(product_qty)
+    
+    return JsonResponse({'data': final, 'totalitems':len(request.session['cart'])})
