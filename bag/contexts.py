@@ -1,23 +1,53 @@
 from decimal import Decimal
 from django.conf import settings
-from products.models import Product, ProductSpec
 
 def bag_contents(request):
 
     cart_items = []
     total = 0
     product_count = 0
-    # cart = request.session.get('cart', {})
+    qty_per_product = 0
+    price = 0
+    total_per_product = 0
+    name = ''
+    size = ''
+    paper = ''
+    product_spec_id = 0
 
-    # for product_spec_id, product_qty in cart.items():
-    #     product_price = int(ProductSpec.price)
-    #     total += product_qty * product_price
-    #     product_count += product_qty
-    #     cart_items.append({
-    #         'product_spec_id': product_spec_id,
-    #         'product_qty': product_qty,
-    #         'product': product,
-    #     })
+    bag = request.session.get('bag', {})
+
+    # for product_spec_id, product_qty in bag.items():
+    for product_spec_id in bag.keys():
+        
+        product_id = product_spec_id
+        # product_id = bag[product_spec_id]
+
+        name = bag[product_spec_id]['name']
+        size = bag[product_spec_id]['size']
+        paper = bag[product_spec_id]['paper']
+        price =  int(bag[product_spec_id]['price']) 
+        total_per_product +=  (bag[product_spec_id]['qty'])*price
+        qty_per_product += bag[product_spec_id]['qty']
+        
+        total += total_per_product
+        product_count += qty_per_product
+
+
+        cart_items.append({
+            'product_id': product_id,
+            'qty_per_product': qty_per_product,
+            'product_count': product_count,
+            'name': name,
+            'paper': paper,
+            'size': size,
+            'total_per_product': total_per_product,
+            'price': price,
+            'total': total
+        })
+        total_per_product = 0
+        qty_per_product = 0
+
+
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

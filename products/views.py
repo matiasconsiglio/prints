@@ -79,7 +79,7 @@ def product_detail(request, id):
 
 def add_to_cart(request):
     """ a d """
-    del request.session['bag']
+    # del request.session['bag']
     paper_id = request.GET['paper-id']
     size_id = request.GET['size-id']
     product_id = request.GET['id']
@@ -111,5 +111,7 @@ def add_to_cart(request):
         print("b")
     
     request.session['bag'] = bag
+    for x in bag.keys():
+        print(x)
 
     return JsonResponse({'data': bag})
