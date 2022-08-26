@@ -52,7 +52,28 @@
                                         <p class="my-0">${{ item.price }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">{{ item.qty_per_product }}</p>
+                                        <div class="form-group mx-auto">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="decrement-qty btn btn-black rounded-4" 
+                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                        <span class="icon">
+                                                            <i class="fas fa-minus"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input oninput="this.value=(this.value   < Number(this.min) || this.value   > Number(this.max))  ? '' : this.value;" type="number" value="{{ item.qty_per_product }}" min="1" max="99" class="form-control product-qty- qty_input" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" />
+                                                <div class="input-group-append">
+                                                    <button class="increment-qty btn btn-black rounded-4"
+                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                        <span class="icon">
+                                                            <i class="fas fa-plus"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <button class="btn btn-black rounded-4 update-cart" data-index="{{product.id}}" type="button">Update Quantity</button>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.total_per_product}}</p>

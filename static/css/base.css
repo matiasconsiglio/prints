@@ -75,6 +75,10 @@ body{
     border-color: black;
 }
 
+.btn-black{
+    background-color: rgb(130, 130, 130);
+}
+
 .btt-button {
     height: 42px;
     width: 42px;
