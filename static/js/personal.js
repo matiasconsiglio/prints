@@ -78,14 +78,44 @@ $(document).ready(function(){
 			beforeSend:function(){
 				_vm.attr('disabled',true);
 			},
-			success:function(res){
-				$(".cart-list").text(res.totalitems);
+			success:function(){
+				// $(".cart-list").text(res.totalitems);
 				_vm.attr('disabled',false);
 			}
 		})
 
 
 	});
+
+
+	// Update item from cart
+	$(document).on('click','.update-cart',function(){
+
+		var _pId=$(this).attr('data-item');
+		var _pQty=$(".new-qty-"+_pId).val();
+		var _vm=$(this);
+		// Ajax
+		$.ajax({
+			url:'/bag/update-cart',
+			data:{
+				'update_id':_pId,
+				'update_qty':_pQty
+			},
+			dataType:'json',
+			beforeSend:function(){
+				_vm.attr('disabled',true);
+			},
+			success:function(){
+				// $(".cart-list").text(res.totalitems);
+				_vm.attr('disabled',false);
+				// _pId.attr('disabled',true);
+				// _pQty.val('disabled',true);
+				location.reload();
+			}
+		});
+		// End
+	});
+
 
 	// Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {

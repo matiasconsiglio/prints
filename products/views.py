@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from .models import Product, Category, ProductSpec
 
 
+
 # Create your views here.
 
 def all_products(request):
@@ -104,14 +105,11 @@ def add_to_cart(request):
     if product_spec_id in list(bag.keys()):
 
         bag[product_spec_id]['qty']+=product_qty
-        print("a")
 
     else:
         bag.update(cart_data)
-        print("b")
-    
-    request.session['bag'] = bag
-    for x in bag.keys():
-        print(x)
 
+    request.session['bag'] = bag
+    
     return JsonResponse({'data': bag})
+

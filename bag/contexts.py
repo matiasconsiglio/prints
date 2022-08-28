@@ -1,10 +1,9 @@
 from decimal import Decimal
 from django.conf import settings
-from products.models import Product, ProductSpec
 
 def bag_contents(request):
 
-    cart_items = []
+    bag_items = []
     total = 0
     product_count = 0
     qty_per_product = 0
@@ -30,7 +29,7 @@ def bag_contents(request):
         total += total_per_product
         product_count += qty_per_product
 
-        cart_items.append({
+        bag_items.append({
             'product_id': product_id,
             'qty_per_product': qty_per_product,
             'product_count': product_count,
@@ -55,7 +54,7 @@ def bag_contents(request):
     grand_total = delivery + total
     
     context = {
-        'cart_items': cart_items,
+        'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,
@@ -63,4 +62,5 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
-    return context
+  
+    return (context)
