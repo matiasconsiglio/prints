@@ -33,6 +33,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
 
@@ -55,7 +56,7 @@
                                         <div class="form-group mx-auto">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-black rounded-4" 
+                                                    <button class="decrement-qty btn btn-sm btn-black rounded-4" 
                                                         data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product_id }}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
@@ -64,7 +65,7 @@
                                                 </div>
                                                 <input oninput="this.value=(this.value   < Number(this.min) || this.value   > Number(this.max))  ? '' : this.value;" type="number" value="{{ item.qty_per_product }}" min="1" max="99" class="form-control form-control-sm new-qty-{{ item.product_id }} qty_input" data-item_id="{{ item.product_id }}" id="id_qty_{{ item.product_id }}" />
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-black rounded-4"
+                                                    <button class="increment-qty btn btn-sm btn-black rounded-4"
                                                         data-item_id="{{ item.product_id }}" id="increment-qty_{{ item.product_id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
@@ -77,6 +78,9 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.total_per_product}}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><button class="btn btn-sm btn-black rounded-4 delete-cart" data-item="{{ item.product_id }}" type="button"><i class="fa fa-trash"></i></button></p>
                                     </td>
                                 </tr>
                             {% endfor %}

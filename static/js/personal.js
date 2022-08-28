@@ -79,7 +79,6 @@ $(document).ready(function(){
 				_vm.attr('disabled',true);
 			},
 			success:function(){
-				// $(".cart-list").text(res.totalitems);
 				_vm.attr('disabled',false);
 			}
 		})
@@ -106,10 +105,28 @@ $(document).ready(function(){
 				_vm.attr('disabled',true);
 			},
 			success:function(){
-				// $(".cart-list").text(res.totalitems);
 				_vm.attr('disabled',false);
-				// _pId.attr('disabled',true);
-				// _pQty.val('disabled',true);
+				location.reload();
+			}
+		});
+		// End
+	});
+
+	$(document).on('click','.delete-cart',function(){
+		var _pId=$(this).attr('data-item');
+		var _vm=$(this);
+		// Ajax
+		$.ajax({
+			url:'/bag/delete-cart',
+			data:{
+				'delete_id':_pId,
+			},
+			dataType:'json',
+			beforeSend:function(){
+				_vm.attr('disabled',true);
+			},
+			success:function(){
+				_vm.attr('disabled',false);
 				location.reload();
 			}
 		});
