@@ -77,7 +77,7 @@
                                         </div>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.total_per_product}}</p>
+                                        <p class="my-0">${{ item.total_per_product }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><button class="btn btn-sm btn-black rounded-4 delete-cart" data-item="{{ item.product_id }}" type="button"><i class="fa fa-trash"></i></button></p>
@@ -104,7 +104,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
