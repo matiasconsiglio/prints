@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from django.contrib import messages
 from django.http import JsonResponse
-from .contexts import bag_contents
 
 
 
@@ -21,6 +21,7 @@ def update_cart(request):
     if str(p_id) in list(bag.keys()):
 
         bag[p_id]['qty'] = p_qty
+        messages.success(request, f'SKU:{p_id}, updated quantity to {p_qty}.')
 
     request.session['bag'] = bag
 
@@ -34,6 +35,7 @@ def delete_cart(request):
     if str(p_id) in list(bag.keys()):
 
         del bag[p_id]
+        messages.success(request, f'SKU:{p_id}, deleted product from the bag.')
 
     request.session['bag'] = bag
 

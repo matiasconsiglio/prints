@@ -106,7 +106,7 @@ def add_to_cart(request):
     if product_spec_id in list(bag.keys()):
 
         bag[product_spec_id]['qty']+=product_qty
-        messages.success(request, f'Added {product_name} to your bag')
+        messages.success(request, f'Added {product_name} with: {product_paper} paper type and {product_size} size to your bag')
 
     else:
         bag.update(cart_data)
