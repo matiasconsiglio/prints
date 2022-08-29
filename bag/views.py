@@ -17,7 +17,6 @@ def update_cart(request):
     bag = request.session['bag']
     p_id = request.GET['update_id']
     p_qty = int(request.GET['update_qty'])
-    # bag = request.session.get('bag')
 
     if str(p_id) in list(bag.keys()):
 
