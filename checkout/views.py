@@ -30,6 +30,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
+        bag = request.session.get('bag', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -42,17 +43,18 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
-            bag = bag_contents(request)
-            bag_items = bag['bag_items']
-            print(bag_items)
-            for item in bag_items:
-                product_name = item['name']
-                product_id = item['product_id']
-                quantity = item['qty_per_product']
-                price = item['price']
-                size = item['size']
-                paper = item['paper']
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
+            for product_spec_id in bag.keys():       
+                product_id = product_spec_id
+                product_name = bag[product_spec_id]['name']
+                size = bag[product_spec_id]['size']
+                paper = bag[product_spec_id]['paper']
+                price = int(bag[product_spec_id]['price'])
+                quantity = bag[product_spec_id]['qty']
                 order_line_item = OrderLineItem(
                     order=order,
                     product_name=product_name,
