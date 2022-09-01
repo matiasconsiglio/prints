@@ -6,17 +6,10 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-
-
-<div class="header-top-space">
-
-</div>
-<h1 class="offset-2 text-black">{% trans "Sign In" %}</h1>
-<div class="row">
-  <div class="col-3 offset-2">
-    <div class="header header-top-space text-black">
-
-
+<div class="header-top-space header col-3 offset-2 text-black">
+  <h1>{% trans "Sign In" %}</h1>
+  <div class="row">
+    <div>  
       {% get_providers as socialaccount_providers %}
       
       {% if socialaccount_providers %}
