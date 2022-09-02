@@ -118,7 +118,17 @@ def add_to_cart(request):
 
 def add_product(request):
     """ Add a product to the store """
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added print now choose the Specs!')
+            return redirect('add_product_spec')
+        else:
+            messages.error(request, 'Failed to add print. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -126,9 +136,20 @@ def add_product(request):
 
     return render(request, template, context)
 
+
 def add_product_spec(request):
-    """ Add a product to the store """
-    form = SpecForm()
+    """ Add product specs to the store """
+    if request.method == 'POST':
+        form = SpecForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added print with Specs, add more Specs to the same print!')
+            return redirect(reverse('add_product_spec'))
+        else:
+            messages.error(request, 'Failed to add print. Please ensure the form is valid.')
+    else:
+        form = SpecForm()
+        
     template = 'products/add_product_spec.html'
     context = {
         'form': form,

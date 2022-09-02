@@ -43,9 +43,14 @@
           </li> -->
           <li class="nav-item">
             {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-                <a href="" class="nav-link text-black">Management</a>
-              {% endif %}
+            {% if request.user.is_superuser %}
+            <li class="nav-item">
+              <a href="{% url 'add_product' %}" class="nav-link text-black">Add Print</a>
+            </li>              
+            <li class="nav-item">
+              <a href="{% url 'add_product_spec' %}" class="nav-link text-black">Add Specs</a>
+            </li>
+            {% endif %}
             </li>
             <li class="nav-item">
               <a href="{% url 'profile' %}" class="nav-link text-black">Profile</a>

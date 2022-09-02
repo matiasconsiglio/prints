@@ -11,14 +11,14 @@
                 {% for product in products %}
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 border-0">
-                                {% if "placeholder" in product.image.url %}
+                                {% if product.image.url %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid"
-                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    <img class="card-img-top img-fluid" alt="event" src=" {{ product.image.url }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" alt="event" src=" {{ product.image.url }}">
+                                    <img class="card-img-top img-fluid"
+                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 </a>
                                 {% endif %}
                             <div class="card-body pb-0 header border-0 text-left text-black">
