@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.db.models.functions import Lower
 from .models import Product, Category, ProductSpec
-
+from .forms import ProductForm, SpecForm
 
 
 # Create your views here.
@@ -116,3 +116,22 @@ def add_to_cart(request):
     
     return JsonResponse({'data': bag})
 
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+def add_product_spec(request):
+    """ Add a product to the store """
+    form = SpecForm()
+    template = 'products/add_product_spec.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
