@@ -1,1 +1,1 @@
-web: gunicorn prints_by_futuro_berg.wsgi:application
+web: gunicorn prints-by-futuro-berg.wsgi:application
