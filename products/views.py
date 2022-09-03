@@ -180,25 +180,9 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
-def edit_product_spec(request, product_spec_id):
-    """ Edit a product in the store """
-    product_spec = get_object_or_404(ProductSpec, pk=product_spec_id)
-    if request.method == 'POST':
-        form = SpecForm(request.POST, request.FILES, instance=product_spec)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated print!')
-            return redirect(reverse('edit_product_spec', args=[product_spec_id]))
-        else:
-            messages.error(request, 'Failed to update print. Please ensure the form is valid.')
-    else:
-        form = SpecForm(instance=product_spec)
-        messages.info(request, f'You are editing SKU: {product_spec_id}')
-
-    template = 'products/edit_product_spec.html'
-    context = {
-        'form': form,
-        'product_spec': product_spec,
-    }
-
-    return render(request, template, context)
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
