@@ -1,9 +1,10 @@
 from django.db import models
 
-# Create your models here.
 
 class Category(models.Model):
-
+    """
+    Category model
+    """
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -17,8 +18,11 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
-class Product(models.Model):
 
+class Product(models.Model):
+    """
+    Product model
+    """
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -29,8 +33,11 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class Size(models.Model):
 
+class Size(models.Model):
+    """
+    Size model
+    """
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -38,14 +45,19 @@ class Size(models.Model):
 
 
 class Paper(models.Model):
-    
+    """
+    Paper model
+    """
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-class ProductSpec(models.Model):
 
+class ProductSpec(models.Model):
+    """
+    Product specs model
+    """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     paper = models.ForeignKey(Paper, on_delete=models.CASCADE)

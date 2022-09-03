@@ -3,7 +3,9 @@ from .models import Product, Category, ProductSpec
 
 
 class ProductForm(forms.ModelForm):
-
+    """
+    Class form to agregate product fields
+    """
     class Meta:
         model = Product
         fields = '__all__'
@@ -20,8 +22,11 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
 
-class SpecForm(forms.ModelForm):
 
+class SpecForm(forms.ModelForm):
+    """
+    Class form to agregate product spec fields
+    """
     class Meta:
         model = ProductSpec
         fields = '__all__'

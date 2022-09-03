@@ -3,12 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import JsonResponse
-from django.db.models.functions import Lower
 from .models import Product, Category, ProductSpec
 from .forms import ProductForm, SpecForm
 
-
-# Create your views here.
 
 def all_products(request):
     """
@@ -23,19 +20,6 @@ def all_products(request):
 
     if request.GET:
 
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
-
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -45,7 +29,8 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
             else:
                 queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -80,8 +65,11 @@ def product_detail(request, id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 def add_to_cart(request):
-    """ a d """
+    """
+    View to add prints to the cart
+    """
     # del request.session['bag']
     paper_id = request.GET['paper-id']
     size_id = request.GET['size-id']
@@ -114,8 +102,9 @@ def add_to_cart(request):
         messages.success(request, f'Added {product_name} to your bag')
 
     request.session['bag'] = bag
-    
+
     return JsonResponse({'data': bag})
+
 
 @login_required
 def add_product(request):
@@ -130,7 +119,7 @@ def add_product(request):
             messages.error(request, 'Failed to add print. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -138,9 +127,12 @@ def add_product(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_product_spec(request):
-    """ Add product specs to the store """
+    """
+    Add product specs to the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -154,7 +146,7 @@ def add_product_spec(request):
             messages.error(request, 'Failed to add print. Please ensure the form is valid.')
     else:
         form = SpecForm()
-        
+
     template = 'products/add_product_spec.html'
     context = {
         'form': form,
@@ -162,9 +154,12 @@ def add_product_spec(request):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """
+    Edit a product in the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -188,10 +183,13 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
-    
+
+
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
+    """
+    Delete a product from the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

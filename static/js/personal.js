@@ -49,7 +49,6 @@ $(document).ready(function(){
         document.documentElement.scrollTop = 0; 
     })
 
-	// add to cart
 	$(document).on('click', ".add-to-cart", function(){
 		var _vm=$(this);
 		var _qty=$(".product-qty-").val();
@@ -60,7 +59,6 @@ $(document).ready(function(){
 		var _productSize=$(".s").text();
 		var _productPaper=$(".p").text();
 		var _productPrice=$(".product-price-variation").text();
-		//Ajax
 
 		$.ajax({
 			url:'/products/add-to-cart',
@@ -88,13 +86,11 @@ $(document).ready(function(){
 	});
 
 
-	// Update item from cart
 	$(document).on('click','.update-cart',function(){
 
 		var _pId=$(this).attr('data-item');
 		var _pQty=$(".new-qty-"+_pId).val();
 		var _vm=$(this);
-		// Ajax
 		$.ajax({
 			url:'/bag/update-cart',
 			data:{
@@ -110,13 +106,11 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
-		// End
 	});
 
 	$(document).on('click','.delete-cart',function(){
 		var _pId=$(this).attr('data-item');
 		var _vm=$(this);
-		// Ajax
 		$.ajax({
 			url:'/bag/delete-cart',
 			data:{
@@ -131,11 +125,8 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
-		// End
 	});
 
-
-	// Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
@@ -144,14 +135,13 @@ $(document).ready(function(){
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
     }
 
-    // Ensure proper enabling/disabling of all inputs on page load
     var allQtyInputs = $('.qty_input');
     for(var i = 0; i < allQtyInputs.length; i++){
         var itemId = $(allQtyInputs[i]).data('item_id');
         handleEnableDisable(itemId);
     }
 
-    // Increment quantity
+
     $('.increment-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
@@ -161,7 +151,6 @@ $(document).ready(function(){
        handleEnableDisable(itemId);
     });
 
-    // Decrement quantity
     $('.decrement-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];

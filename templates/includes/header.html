@@ -16,31 +16,12 @@
                 Prints
             </a>
             <div class="dropdown-menu border-0 header" aria-labelledby="prints">
-                <a href="{% url 'products' %}?category=indoor" class="dropdown-item text-black">Indoor</a>
-                <a href="{% url 'products' %}?category=street_art" class="dropdown-item text-black">Street Art</a>
+                <a href="{% url 'products' %}?categories=indoor" class="dropdown-item text-black">Indoor</a>
+                <a href="{% url 'products' %}?categories=street_art" class="dropdown-item text-black">Street Art</a>
+                <a href="{% url 'products' %}?categories=people" class="dropdown-item text-black">People</a>
                 <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-black" href="#" id="printsoffers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Order by
-            </a>
-            <div class="dropdown-menu border-0 header" aria-labelledby="printsoffers">
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item text-black">Category</a>
-                <!-- <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item text-black">Price</a> -->
-                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item text-black">Rating</a>
-                <a href="{% url 'products' %}" class="dropdown-item text-black">All Prints</a>
-            </div>
-          </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-black" href="#" id="printsoffers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Offers
-            </a>
-            <div class="dropdown-menu border-0 header" aria-labelledby="printsoffers">
-                <a href="" class="dropdown-item text-black">Deals</a>
-                <a href="" class="dropdown-item text-black">Frames</a>
-            </div>
-          </li> -->
           <li class="nav-item">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
@@ -90,7 +71,7 @@
       </a>
       <div id="delivery-banner" class="row text-center">
         <div class="col bg-black text-white">
-            <h4 class="my-0 small">Free delivery over {{ free_delivery_threshold }}Kr!</h4>                
+            <h4 class="my-0 small">Free delivery over US$ {{ free_delivery_threshold }}</h4>                
         </div>            
       </div>
     </div>

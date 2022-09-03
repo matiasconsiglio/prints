@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -8,7 +7,6 @@
         </div>
     </div>
 {% endblock %}
-
 {% block content %}
     <div class="overlay"></div>
     <div class="container mb-2 header-top-space">
@@ -19,7 +17,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col header">
                 {% if bag_items %}
@@ -36,7 +33,6 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="py-3">

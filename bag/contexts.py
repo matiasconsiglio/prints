@@ -2,7 +2,9 @@ from decimal import Decimal
 from django.conf import settings
 
 def bag_contents(request):
-
+    """
+    Bag contents function used for Cart information of user order
+    """
     bag_items = []
     total = 0
     product_count = 0
@@ -17,7 +19,7 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for product_spec_id in bag.keys():
-        
+
         product_id = product_spec_id
         name = bag[product_spec_id]['name']
         size = bag[product_spec_id]['size']
@@ -25,7 +27,6 @@ def bag_contents(request):
         price = int(bag[product_spec_id]['price']) 
         total_per_product += (bag[product_spec_id]['qty'])*price
         qty_per_product += bag[product_spec_id]['qty']
-        
         total += total_per_product
         product_count += qty_per_product
 
@@ -43,16 +44,15 @@ def bag_contents(request):
         total_per_product = 0
         qty_per_product = 0
 
-
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
@@ -62,5 +62,5 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
-  
-    return (context)
+
+    return context

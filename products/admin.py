@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import Product, Category, ProductSpec, Size, Paper
 
-# Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Class to show product fields in admin
+    """
     list_display = (
         'sku',
         'name',
@@ -12,13 +14,21 @@ class ProductAdmin(admin.ModelAdmin):
     )
     ordering = ('sku',)
 
+
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Class to show category fields in admin
+    """
     list_display = (
         'friendly_name',
         'name',
     )
 
+
 class ProductSpecAdmin(admin.ModelAdmin):
+    """
+    Class to show product spec fields in admin
+    """
     list_display = (
         'product',
         'size',
@@ -26,6 +36,7 @@ class ProductSpecAdmin(admin.ModelAdmin):
         'price',
     )
     ordering = ('product',)
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)

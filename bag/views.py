@@ -3,17 +3,17 @@ from django.contrib import messages
 from django.http import JsonResponse
 
 
-
-# Create your views here.
-
 def view_bag(request):
-    """ A view that renders the bag contents page """
-
+    """
+    A view that renders the bag contents page
+    """
     return render(request, 'bag/bag.html')
 
 
 def update_cart(request):
-    """Example."""
+    """
+    View for updating quantity of a product in the cart
+    """
     bag = request.session['bag']
     p_id = request.GET['update_id']
     p_qty = int(request.GET['update_qty'])
@@ -28,7 +28,9 @@ def update_cart(request):
     return JsonResponse({'data': bag})
 
 def delete_cart(request):
-    """Example."""
+    """
+    View for deleting a product in the cart
+    """
     bag = request.session['bag']
     p_id = str(request.GET['delete_id'])
 
@@ -40,4 +42,3 @@ def delete_cart(request):
     request.session['bag'] = bag
 
     return JsonResponse({'data': bag})
-    
