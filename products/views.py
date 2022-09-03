@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
@@ -153,6 +153,52 @@ def add_product_spec(request):
     template = 'products/add_product_spec.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+def edit_product(request, product_id):
+    """ Edit a product in the store """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated print!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update print. Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+def edit_product_spec(request, product_spec_id):
+    """ Edit a product in the store """
+    product_spec = get_object_or_404(ProductSpec, pk=product_spec_id)
+    if request.method == 'POST':
+        form = SpecForm(request.POST, request.FILES, instance=product_spec)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated print!')
+            return redirect(reverse('edit_product_spec', args=[product_spec_id]))
+        else:
+            messages.error(request, 'Failed to update print. Please ensure the form is valid.')
+    else:
+        form = SpecForm(instance=product_spec)
+        messages.info(request, f'You are editing SKU: {product_spec_id}')
+
+    template = 'products/edit_product_spec.html'
+    context = {
+        'form': form,
+        'product_spec': product_spec,
     }
 
     return render(request, template, context)
