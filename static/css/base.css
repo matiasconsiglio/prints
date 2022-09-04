@@ -46,6 +46,7 @@ body{
     border-color: black;
     margin-top: 20px;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .shop-now-button:hover{
