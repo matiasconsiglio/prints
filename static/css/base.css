@@ -197,4 +197,8 @@ body{
     #delivery-banner h4 {
         font-size: .9rem;
     }
+
+    .price-small{
+        padding-top: 10px;
+    }
 }

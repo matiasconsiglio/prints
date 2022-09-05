@@ -3,9 +3,9 @@
 {% block page_header %}
 {% endblock %}
 {% block content %}
-    <div class="container header-top-space header  product-detail-width">
+    <div class="container header-top-space header product-detail-width">
         <div class="row">
-            <div class="col-12 text-center header">
+            <div class="col-12 text-center">
                 <div class="image-container my-2">
                     {% if "placeholder" in product.image.url %}
                     <a href="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" target="_blank">
@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <th>Price US$</th>
-                            <th><p class="lead mb-0 text-left font-weight-bold product-price-variation text-black">{{product.productspec_set.first.price}}</p></th>
+                            <th><p class="lead mb-0 text-left font-weight-bold product-price-variation text-black price-small">{{product.productspec_set.first.price}}</p></th>
                         </tr>
                     </table>
                     <hr/>
