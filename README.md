@@ -84,11 +84,17 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
 
 ##### Epic 3: Sorting and Searching
 
-11. Edit and Delete Comments:
-    - As a Site User I can choose to manipulate my comment so that I can edit it or delete it.
+11. Sort Prints:
+    - As a site user and costumer I can sort the prints by category so that I can easily choose the print I want.
+        - Sort option available in the menu around the whole site.
+        - Manual testing for the different categories.
 
-12. Like and Unlike Events:
-    - As a Site User I can like or unlike an event so that I can interact with the content.
+12. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+##### Epic 4: Purchashing and Checkout
 
 13. Social Media:
     - As a Site User I can interact with the event social media so that I can follow the different DJs and/or organisers.
