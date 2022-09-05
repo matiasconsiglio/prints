@@ -59,7 +59,7 @@
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <input oninput="this.value=(this.value   < Number(this.min) || this.value   > Number(this.max))  ? '' : this.value;" type="number" value="{{ item.qty_per_product }}" min="1" max="99" class="form-control form-control-sm new-qty-{{ item.product_id }} qty_input bag-btn" data-item_id="{{ item.product_id }}" id="id_qty_{{ item.product_id }}" />
+                                                <input size="20" oninput="this.value=(this.value   < Number(this.min) || this.value   > Number(this.max))  ? '' : this.value;" type="number" value="{{ item.qty_per_product }}" min="1" max="99" class="form-control form-control-sm new-qty-{{ item.product_id }} qty_input bag-btn" data-item_id="{{ item.product_id }}" id="id_qty_{{ item.product_id }}" />
                                                 <div class="input-group-append">
                                                     <button class="increment-qty btn btn-sm btn-black rounded-4 bag-btn"
                                                         data-item_id="{{ item.product_id }}" id="increment-qty_{{ item.product_id }}">
