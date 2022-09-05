@@ -84,12 +84,47 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
 
 ##### Epic 3: Sorting and Searching
 
-11. Sort Prints:
-    - As a site user and costumer I can sort the prints by category so that I can easily choose the print I want.
-        - Sort option available in the menu around the whole site.
-        - Manual testing for the different categories.
+11. Custom user profile:
+    - As a site user I can have a personalised user profile so that I can review my purchase history, order confirmations and save my address and payment information.
+        - Create models, views and urls for profile app.
+        - Manual testing after checkout to see if everything works.
 
-12. Search Engine:
+12. Total cart price:
+    - As a site user and costumer I can see the total amount of my prints in the cart so that I know how much I'm about to spend.
+        - Cart icon available through the site.
+        - Manual testing to check correct price shown.
+
+13. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+14. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description
+
+15. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+16. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description
+
+17. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+18. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+19. Search Engine:
     - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
         - Search bar available in the menu around the whole site.
         - Manual testing for name and description.
