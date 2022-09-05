@@ -42,29 +42,47 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
         - Account management with Allauth working.
         - Manual testing with super user and normal user to check functionality.
 
-3. Approve Comments.
-    - As a an Admin I can approve or disapprove comments so that I can filter out objectionable comments.
+3. Password recovery:
+    - As a site user I can recover my password in case I forget it so that I can have access to my personal information again.
+        - Account management with Allauth working.
+        - Manual testing with super user and normal user to check functionality.
 
-4. Site Pagination:
-    - As a Site User I can view a paginated list of events so that I can easily select a post to view.
+4. Account registration:
+    - As a site user I can receive a confirmation via email from my account registration so that I can know that was successfully created.
+        - Account management with Allauth working.
+        - Manual testing with super user and normal user to check functionality.
 
-5. View Event List:
-    - As a Site User I can view a list of events so that I can select one to watch and read.
+##### Epic 2: Viewing and Navigating
 
-6. View Likes:
-    - As a Site User / Admin I can view the number of likes in each event so that I can see which one is more popular.
+5. Prints list:
+    - As a site user and costumer I can view different prints so I can select some to purchase.
+        - Create models, views and urls for products.
+        - Manual testing that the prints are shown.
 
-7. View Comments:
-    - As a Site User / Admin I can view comments on an individual event so that I can read the conversation.
+6. Prints details:
+    - As a site user and costumer I can see the information and details of each print so that I can see the description, rating, price, different images, choose size and type of paper.
+        - Create product specs models, views and urls.
+        - Manual testing that the prints specs are shown.
 
-8. Open an Event:
-    - As a Site User I can click on an event so that I can see all the information and media from it.
+7. Messages for user:
+    - As a site user and costumer I can see messages so that I can know and have feedback of my interaction with the site.
+        - Create toast for messages.
+        - Manual Test that messages works.
 
-9. Account Registration:
-    - As a Site User I can register an account so that I can comment and like different events.
+8. Add print:
+    - As the store owner I can add a print to the store so that the costumers can buy it.
+        - Add both possibility to add prints in back and front end.
+        - Manual testing both in front and back end.
 
-10. Comment on an Event:
-    - As a Site User I can comment on an event so that I can interact with it.
+9. Edit/update print:
+    - As the store owner I can edit/update the information of a print so that I can change the price, description, images, size and paper type.
+        - Allow deletion of prints in back end and front end.
+        - Manual testing both in front and back end.
+
+10. Delete prints:
+    - As a store owner I can delete a print so that I can remove the ones that are not longer available for sale.
+
+##### Epic 3: Sorting and Searching
 
 11. Edit and Delete Comments:
     - As a Site User I can choose to manipulate my comment so that I can edit it or delete it.
@@ -359,6 +377,8 @@ Admin Events edit section.
 - If the super user decides to add a print and after add specs to it, if the super user doesn't follow the message explaining the order of each spec to be added in the front end, after when a user will try to make an order, the information will not appear correctly in the cart. This bug has a deep jquery connection, that has to be followed and at the same time needs new knowledge beyond the course to be able to fix it. If the super user follows the order mention everything would works properly. Other option would be to generate 4 different forms where the super user only chooses the price inside the product spec model per print option. 
 
 - After final deployment, error h10 was showed and the heroku app was crushing. With help of tutor session, bug was fixed changing Procfile with "prints" instead of "prints-by-futuro-berg".
+
+- Error 500 after deployment when trying to generate new user. STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), ) changed to STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]. First one is the one used in the last version of Boutique Ado.
 
 
 ## Deployment
