@@ -8,6 +8,8 @@
 
 html{
     height: 100%;
+    overflow-x:hidden;
+    width: 100%;
 }
 
 html, body {
@@ -20,6 +22,9 @@ html, body {
 
 body{
     background-color: #fff;
+}
+.fit-content{
+    height: fit-content;
 }
 
 .header{
@@ -124,9 +129,11 @@ body{
     height: 2px;
 }
 
-.footer-fixed{
+.footer-fixed {
+    position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 3;
 }
 
 .arrow-primary {
