@@ -378,6 +378,8 @@ Admin Events edit section.
 
 - After final deployment, error h10 was showed and the heroku app was crushing. With help of tutor session, bug was fixed changing Procfile with "prints" instead of "prints-by-futuro-berg".
 
+- Error 500 after deployment when trying to generate new user. STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), ) changed to STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]. First one is the one used in the last version of Boutique Ado.
+
 
 ## Deployment
 
