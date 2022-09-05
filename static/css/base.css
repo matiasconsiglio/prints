@@ -209,5 +209,10 @@ body{
     
     .table-mobile{
         text-size-adjust: 70%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+    .table td, .table th {
+        font-size: 60%;
     }
 }
