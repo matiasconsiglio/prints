@@ -27,6 +27,10 @@ body{
     height: fit-content;
 }
 
+.container{
+    min-height: 100vh;
+}
+
 .header{
     background-color: rgba(222, 222, 222, 0.88);
     border-radius: 2%;
@@ -130,6 +134,7 @@ body{
 }
 
 .footer-fixed {
+    margin-top: auto;
     bottom: 0;
     width: 100%;
     z-index: 3;
