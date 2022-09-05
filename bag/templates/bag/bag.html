@@ -52,7 +52,7 @@
                                         <div class="form-group mx-auto">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm btn-black rounded-4" 
+                                                    <button class="decrement-qty btn btn-sm btn-black rounded-4 bag-btn" 
                                                         data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product_id }}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
@@ -68,7 +68,7 @@
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <button class="btn btn-sm btn-black rounded-4 update-cart" data-item="{{ item.product_id }}" type="button">Update Quantity</button>
+                                                <button class="btn btn-sm btn-black rounded-4 update-cart bag-btn" data-item="{{ item.product_id }}" type="button"><i class="fa fa-refresh"></i></button>
                                             </div>
                                         </div>
                                     </td>
@@ -76,7 +76,7 @@
                                         <p class="my-0">US$ {{ item.total_per_product }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><button class="btn btn-sm btn-black rounded-4 delete-cart" data-item="{{ item.product_id }}" type="button"><i class="fa fa-trash"></i></button></p>
+                                        <p class="my-0"><button class="btn btn-sm btn-black rounded-4 delete-cart bag-btn" data-item="{{ item.product_id }}" type="button"><i class="fa fa-trash"></i></button></p>
                                     </td>
                                 </tr>
                             {% endfor %}
