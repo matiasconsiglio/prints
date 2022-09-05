@@ -173,6 +173,10 @@ body{
     .product-detail-width{
         width: 65%;
     }
+
+    .bag-btn{
+        font-size: 85%;
+    }
 }
 
 @media (max-width: 800px){
