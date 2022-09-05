@@ -158,7 +158,8 @@ body{
 }
 
 .input-width{
-    width: fit-content;
+    width: 25px !important;
+    padding-left: 3px;
 }
 
 @media (max-width: 1400px){
