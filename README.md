@@ -6,33 +6,41 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
 
 ![Welcome image](/assets/readme-images/first-run.png)
 
-## User Stories, Project Goals, Agile Methodology and Diagram for UX
+## Business Model and Planning
 
-### Project Goals
+### Strategy Plane
 
-- Create a full Stack project based on an Event Blog Style application.
+#### Project Goals
 
-- External User's goal:
-    - User wants to see what's going on at ΠΛΤΤ Sessions in Rex Malmo Bar, also be able to like and comment on different events.
+- Create a full Stack e-commerce project with payment, authentication, different prints and different specs or attributes per print.
+- B2C type of e-commerce offering prints to direct customers.
+- Give the owner of the store the ability to manage the store both in the back end and the front end. 
 
-- Site owner's goals:
-    - ΠΛΤΤ wants to have a platform to show to the users media from the different events, connect with them and generate discussion in the community.
+#### External User's goal and Target Audience
 
-- Potential features to include:
-    - Create different events.
-    - Like and view likes from different events.
-    - Comment events.
-    - Follow Social Media from different Djs
-    - Include photos, videos and audio from the events.
-    - See different comments with the time/date of the comment as well as the author.
+- Users have the possibility to select a desired print with desired size and paper type, also have the possibility to register in the e-commerce for order purchase history and easier delivery address information management.
+- Enthusiastic people about professional analog photography.
 
-### User Stories 
+#### Site owner's goals
 
-1. Manage Events:
-    - As an Admin I can create, read, update and delete events so that I can manage my event site.
+- Futuro Berg wants a platform where he can show his art online and also be able to monetize from it.
 
-2. Create Drafts:
-    - As an Admin I can create draft events so that I can finish uploading the content later.
+
+### Scope Plane
+
+#### Agile Methodology, Epics, User Stories and Tasks
+
+##### Epic 1: Registration and User Accounts
+
+1. Register an account:
+    - As a site user I can register an account so that I will be able to view my profile and have a personal account.
+        - Registration and account management with Allauth.
+        - Profile app for the user to review past purchases and personal information.
+
+2. Login and Logout:
+    - As a site user I can login and logout from my account so that I can have access to my personal information.
+        - Account management with Allauth working.
+        - Manual testing with super user and normal user to check functionality.
 
 3. Approve Comments.
     - As a an Admin I can approve or disapprove comments so that I can filter out objectionable comments.

@@ -124,6 +124,11 @@ body{
     height: 2px;
 }
 
+.footer-fixed{
+    position: fixed;
+    bottom: 0;
+}
+
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }

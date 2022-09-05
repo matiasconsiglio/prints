@@ -53,11 +53,14 @@
     </div>
     {% endif %}
 
+    {% block page_header %}
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
 
     {% block footer %}
-    <footer class="container-wrapper header header-top-space">
+    <footer class="container-wrapper header header-top-space footer-fixed">
       <div class="container quotes-container content-container">
         <section class="footer">
           <div class="row">
