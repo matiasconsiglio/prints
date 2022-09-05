@@ -157,6 +157,10 @@ body{
     overflow-y: auto;
 }
 
+.input-width{
+    width: fit-content;
+}
+
 @media (max-width: 1400px){
     .product-detail-width{
         width: 45%;
