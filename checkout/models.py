@@ -6,7 +6,6 @@ from django_countries.fields import CountryField
 from profiles.models import UserProfile
 
 
-
 class Order(models.Model):
     """
     Order model with specific fields needed for procesing user purchases
@@ -45,9 +44,15 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = (
+            self.lineitems.aggregate(
+                Sum('lineitem_total')
+                )['lineitem_total__sum'] or 0
+            )
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = (
+                self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+                )
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
@@ -70,11 +75,16 @@ class OrderLineItem(models.Model):
     """
     Class for adding in line for checkout different items from the cart
     """
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(
+        Order, null=False, blank=False,
+        on_delete=models.CASCADE, related_name='lineitems'
+        )
     product_id = models.CharField(max_length=10, null=True, blank=True)
     product_name = models.CharField(max_length=20, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False, editable=False
+        )
     price = models.PositiveIntegerField(null=True, default=0)
     size = models.CharField(max_length=20, null=True, blank=True)
     paper = models.CharField(max_length=100, null=True, blank=True)

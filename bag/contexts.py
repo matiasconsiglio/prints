@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 
+
 def bag_contents(request):
     """
     Bag contents function used for Cart information of user order
@@ -24,7 +25,7 @@ def bag_contents(request):
         name = bag[product_spec_id]['name']
         size = bag[product_spec_id]['size']
         paper = bag[product_spec_id]['paper']
-        price = int(bag[product_spec_id]['price']) 
+        price = int(bag[product_spec_id]['price'])
         total_per_product += (bag[product_spec_id]['qty'])*price
         qty_per_product += bag[product_spec_id]['qty']
         total += total_per_product

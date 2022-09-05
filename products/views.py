@@ -29,11 +29,14 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request,
-                "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('products'))
             else:
-                queries = Q(name__icontains=query) | Q(description__icontains=query)
+                queries = (
+                    Q(name__icontains=query) | Q(description__icontains=query)
+                )
                 products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -54,8 +57,16 @@ def product_detail(request, id):
     """
 
     product = Product.objects.get(id=id)
-    sizes = ProductSpec.objects.filter(product=product).values('size__id', 'size__name').distinct()
-    papers = ProductSpec.objects.filter(product=product).values('paper__id', 'paper__name', 'price', 'size__id').distinct()
+    sizes = (
+        ProductSpec.objects.filter(product=product).values(
+            'size__id', 'size__name'
+            ).distinct()
+    )
+    papers = (
+        ProductSpec.objects.filter(product=product).values(
+            'paper__id', 'paper__name', 'price', 'size__id'
+            ).distinct()
+        )
 
     context = {
         'product': product,
@@ -79,7 +90,9 @@ def add_to_cart(request):
     product_name = request.GET['name']
     product_size = request.GET['size']
     product_paper = request.GET['paper']
-    product_spec = ProductSpec.objects.filter(paper__id=paper_id, size__id=size_id, product__id=product_id).first()
+    product_spec = ProductSpec.objects.filter(
+        paper__id=paper_id, size__id=size_id, product__id=product_id
+        ).first()
     product_spec_id = str(product_spec.id)
     cart_data = {}
 
@@ -94,8 +107,12 @@ def add_to_cart(request):
 
     if product_spec_id in list(bag.keys()):
 
-        bag[product_spec_id]['qty']+=product_qty
-        messages.success(request, f'Added {product_name} with: {product_paper} paper type and {product_size} size to your bag')
+        bag[product_spec_id]['qty'] += product_qty
+        messages.success(
+            request, (
+                f'Added {product_name} with: {product_paper} paper type and {product_size}) size to your bag'
+                )
+            )
 
     else:
         bag.update(cart_data)
@@ -113,10 +130,16 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully added print now choose the Specs!')
+            messages.success(
+                request, 'Successfully added print now choose the Specs!'
+                )
             return redirect('add_product_spec')
         else:
-            messages.error(request, 'Failed to add print. Please ensure the form is valid.')
+            messages.error(
+                request, (
+                    'Failed to add print. Please ensure the form is valid.'
+                    )
+                )
     else:
         form = ProductForm()
 
@@ -140,10 +163,18 @@ def add_product_spec(request):
         form = SpecForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully added print with Specs, add more Specs to the same print!')
+            messages.success(
+                request, (
+                    'Successfully added print with Specs, add more Specs to the same print!'
+                    )
+                )
             return redirect(reverse('add_product_spec'))
         else:
-            messages.error(request, 'Failed to add print. Please ensure the form is valid.')
+            messages.error(
+                request, (
+                    'Failed to add print. Please ensure the form is valid.'
+                    )
+                )
     else:
         form = SpecForm()
 
@@ -171,7 +202,11 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated print!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update print. Please ensure the form is valid.')
+            messages.error(
+                request, (
+                    'Failed to update print. Please ensure the form is valid.'
+                    )
+                )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

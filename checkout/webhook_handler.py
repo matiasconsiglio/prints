@@ -22,13 +22,13 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        ) 
+        )
 
     def handle_event(self, event):
         """
@@ -63,8 +63,12 @@ class StripeWH_Handler:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
                 profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_street_address1 = (
+                    shipping_details.address.line1
+                    )
+                profile.default_street_address2 = (
+                    shipping_details.address.line2
+                    )
                 profile.save()
 
         order_exists = False
@@ -108,7 +112,7 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-                for product_spec_id in json.loads(bag).keys():       
+                for product_spec_id in json.loads(bag).keys():
                     product_id = product_spec_id
                     product_name = bag[product_spec_id]['name']
                     size = bag[product_spec_id]['size']

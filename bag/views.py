@@ -27,6 +27,7 @@ def update_cart(request):
 
     return JsonResponse({'data': bag})
 
+
 def delete_cart(request):
     """
     View for deleting a product in the cart

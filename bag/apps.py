@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
+
 class BagConfig(AppConfig):
     """
     Bag app congiguration
