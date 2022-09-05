@@ -249,4 +249,10 @@ body{
     .bag-btn-input{
         font-size: 75%; 
     }
+
+    .input-width{
+        width: 12px !important;
+        padding-left: 2px;
+        padding-right: 1px;
+    }
 }
