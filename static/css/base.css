@@ -175,11 +175,14 @@ body{
 @media (max-width: 450px){
     .logo-small{
         font-size: 1rem;
-        padding: 0;
+        padding: 0px;
+        margin: 0px;
     }
 
     .logo-external{
-        size: 50%;
+        width: 100px;
+        height: 29px;
+        margin: 0px;
     }
     .nav-link{
         padding: 0.15rem;
