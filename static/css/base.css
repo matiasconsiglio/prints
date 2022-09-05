@@ -25,9 +25,11 @@ body{
 .header{
     background-color: rgba(222, 222, 222, 0.88);
     border-radius: 2%;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .header-top-space{
-    margin-top: 125px;
+    margin-top: 110px;
 }
 
 .icon {
@@ -203,5 +205,9 @@ body{
 
     .price-small{
         padding-top: 10px;
+    }
+    
+    .table-mobile{
+        text-size-adjust: 70%;
     }
 }
