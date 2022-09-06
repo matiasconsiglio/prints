@@ -213,42 +213,73 @@ Home page approach.
     - Special design page that allows the user to register to Prints.
     - Explanation to the user in case they already have and account, button option to go to sign in page.
     - Username, password and password confirmation required.
-    - User email input as optional.
+    - User email double input.
     - Sign up button for confirmation.
-    - Messages shown in case the name of the user already exists.
+    - Messages shown in case the name of the user or email already exists.
+    - Successfull message for correct registration asking for activate account.
+    - Successfull redirect of page for correct registration asking for activate account.
+    - Redirect to Sign In after email verification.
     - Navbar and footer keeps the style of the welcome page.
-    - Link that allows you to go to the sign in page in case you already have an account created.
 
  
 ![Registration](/assets/readme-images/register.png)
 
 Register page with link to sign in page.
 
+![Registration success](/assets/readme-images/register-success.png)
 
-![User already exist](/assets/readme-images/user-exist.png)
+Verification page after register.
 
-User message already exist.
+![Registration email](/assets/readme-images/email.png)
 
+Email confirmation
+
+![Registration email verification](/assets/readme-images/email-verification.png)
+
+Email verification link.
+
+![Registration account verified](/assets/readme-images/account-verified.png)
+
+Account verified
+
+![Registration](/assets/readme-images/user-exist.png)
+
+User name and/or email message already exist.
 
 - Login for User.
 
-    - Special design page that allows the user to Login to ΠΛΤΤ Sessions.
-    - User and Password required
-    - Remember me checkbox
-    - Sign in button
+    - Special design page that allows the user to Login to Prints.
+    - User and Password required.
+    - Remember me checkbox.
+    - Sign in button.
     - Message shown in case the username or password is incorrect.
     - Navbar and footer keeps the style of the welcome page.
     - Link that allows you to go to the register page in case you don't have an account created.
+    - Forgot password link and email for password recovery.
 
-![Login](/assets/readme-images/login.png)
+![Login](/assets/readme-images/account-verified.png)
 
 Login Page with message and link for register.
-
 
 ![Incorrect login](/assets/readme-images/incorrect-login.png)
 
 Incorrect login. 
 
+![Password reset](/assets/readme-images/password-reset.png)
+
+Password reset.
+
+![Password reset email sent](/assets/readme-images/password-reset-email.png)
+
+Password reset email sent.
+
+![Change password](/assets/readme-images/change-password.png)
+
+Change password.
+
+![Password changed](/assets/readme-images/password-changed.png)
+
+Password changed.
 
 - Logout
 
@@ -257,192 +288,202 @@ Incorrect login.
     - Navbar and footer keeps the style of welcome page.
     - Once Sign Out is clicked the user is redirected to the home page.
 
+![Sign in confirmation](/assets/readme-images/sign-in-confirmation.png)
 
-![Logout](/assets/readme-images/logout.png)
+Sign in confirmation
 
-Sign out confirmation page.
+![Logout](/assets/readme-images/log-out.png)
 
+Log out page.
 
-![Home](/assets/readme-images/first-run.png)
+![Logout confirmation](/assets/readme-images/log-out-confirmation.png)
 
-Redirect to home after sign out.
+Redirect to home after sign out and logout confirmation.
 
+- Prints page
 
-- Event
-
-    - Number of likes and comments.
-    - Possibility to see comments from different users.
+    - Prints available.
+    - Name, description and category
     - Navbar and footer keeps the style of the welcome page.
-    - Flyer of the event.
 
-    - Depending on the event, the post can have:
-        - None, one or more guest Djs.
-        - Bio of different guest Djs.
-        - Social Media from guest Djs.
-        - Photos and embedded videos from Youtube and sound from Soundcloud.
-        - ΠΛΤΤ media including photos, videos or/and audio.
-
-    - For all events if the user is logged in:
-        - Possibility to comment and wait for approval from Admin of the comment.
-        - If the user already commented and the comment was approved; possibility of updating and/or deleting the same user comment.
-        - Like the event.
+    - If super user, edit and delete print available options in prints and navbar.
  
-![Event post intro plus like option](/assets/readme-images/session2-1.png)
+![Prints](/assets/readme-images/prints.png)
 
-Event first view liked by the user.
+Prints view.
 
+![Prints view for super user](/assets/readme-images/prints-super.png)
 
-![Home page with like](/assets/readme-images/home-like.png)
+Prints view for super user.
 
-Home page with like.
+![Add print](/assets/readme-images/add-print.png)
 
+Add print.
 
-![Event guest dj video and audio](/assets/readme-images/session2-2.png)
+![Add print success](/assets/readme-images/add-success.png)
 
-Guest Dj media.
+Add print success.
 
+![Add print specs](/assets/readme-images/spec.png)
 
-![Matt media 1](/assets/readme-images/mattmedia1.png)
+Add print specs.
 
-ΠΛΤΤ media.
+![Add print specs type](/assets/readme-images/choose-spec.png)
 
+Add print specs type.
 
-![Matt media 2](/assets/readme-images/mattmedia2.png)
+![Add print specs type success](/assets/readme-images/spec-success.png)
 
-ΠΛΤΤ media.
+Add print specs type success.
 
+![Added print view](/assets/readme-images/new-print-view.png)
 
-![Matt media 3](/assets/readme-images/mattmedia3.png)
+Added print view.
 
-ΠΛΤΤ media.
+![Added print spec view](/assets/readme-images/spec-view.png)
 
+Added print specs view.
 
-![Logged in comment view](/assets/readme-images/loggedin-comment-view.png)
+![Delete print](/assets/readme-images/delete.png)
 
-Logged-in comment view.
+Deleted print message.
 
+![Media require](/assets/readme-images/media-require.png)
 
-![Logged in commented waiting for approval](/assets/readme-images/comment-view-waiting-approval.png)
+Media require for adding print.
 
-Logged-in comment sent waiting for approval.
+![Print added in admin](/assets/readme-images/product-admin.png)
 
+Print added in admin.
 
-![Logged in comments view](/assets/readme-images/loggedin-comment-approved.png)
+![Print added in admin destription](/assets/readme-images/admin-att.png)
 
-Logged-in comment section after approval.
+Print added in admin description.
 
+![Print added in admin specs](/assets/readme-images/admin-spec.png)
 
-![Logged out comment view](/assets/readme-images/logged-out-comment-view.png)
+Print added in admin specs.
 
-Logged-out comment section.
+- Print details
+    - Name.
+    - Description.
+    - Paper size options.
+    - Paper type options.
+    - Price.
+    - Quantity selector.
+    - Add to cart.
+    - Keep shopping.
 
+![Print added to cart plus pop-up cart message](/assets/readme-images/print-detail-cart.png)
 
-- Update comment.
-    - Only available for logged in users and for updating their own users comment.
-    - Sends you to another page to update and send your new comment
-    - New comment needs approval.
-    - Old comment gets deleted.
+Print added to cart plus pop-up cart message.
 
-![Logged in comments view](/assets/readme-images/loggedin-comment-approved.png)
+- Purchasing example
+    - Log in with natural user.
+    - Order by category.
+    - Search for prints.
+    - View bag.
+    - Checkout.
+    - Webhooks. 
+    - Order confirmation.
+    - Check order in the profile view for loged in users.
 
-Logged-in comment section after approval.
+- Admin models
+    - Size.
+    - Paper.
+    - Category.
+    - Product.
+    - ProductSpec.
+    - 
 
+- Marketing
+    - Facebook page created for marketing purpose.
+    - [Facebook page](https://www.facebook.com/FuturoBergPrints/)
 
-![Update comment view](/assets/readme-images/update-comment.png)
+![Marketing cover](/assets/readme-images/marketing-1.png)
 
-Update comment view.
+Marketing cover.
 
+![Marketing profile picture](/assets/readme-images/marketing-2.png)
 
-![Update comment waiting for approval](/assets/readme-images/update-comment-waiting-approval.png)
+Marketing profile picture
 
-Update comment waiting for approval.
+![Marketing first post](/assets/readme-images/marketing-3.png)
 
+Marketing first post.
 
-![Update comment view after approval](/assets/readme-images/update-comment-approved.png)
+![Marketing shop button](/assets/readme-images/marketing-4.png)
 
-Update comment view after approval.
+Marketing shop button
 
+![Marketing over-view](/assets/readme-images/marketing-5.png)
 
-![Different user logged in comments view](/assets/readme-images/different-user-logged-comment-view.png)
+Marketing over-view
 
-Different user logged in comments view.
+![Marketing over-view](/assets/readme-images/marketing-7.png)
 
-  
-- Delete comment.
-   - Only available for logged in users and for deleting their own comments.
-   - Pop-up message with back and delete confirmation option.
+Marketing link in footer
 
-![Delete in comments view](/assets/readme-images/delete-comment.png)
+- Privacy policy
 
-Delete in comments view logged in as author.
+![Marketing over-view](/assets/readme-images/marketing-7.png)
 
+Privacy policy link
 
-![Delete pop-up message confirmation](/assets/readme-images/delete-comment-pop-up.png)
+![Marketing over-view](/assets/readme-images/privacy.png)
 
-Delete pop-up message confirmation.
+Privacy policy 
 
+- SEO
+    - Metatags used with keywords selected upon search data in the web. robot.txt file created with sitemap.xml to help the search optimization of Prints webpage in google. Also spans, and strong attributes were used in important places and keywords through the code. The following images are examples of all the implementation of SEO in the project.
 
-![View after choosing back deleting](/assets/readme-images/delete-comment-back.png)
+![SEO Span and Strong](/assets/readme-images/seo-1.png)
 
-View after choosing back deleting.
+Span and strong used.
 
+![SEO Span and Strong](/assets/readme-images/seo-2.png)
 
-![View after deleting comment](/assets/readme-images/deleted-comment.png)
+Span and strong used.
 
-View after deleting comment.
+![SEO Span and Strong](/assets/readme-images/seo-3.png)
 
+Span and strong used.
 
-![Delete option view for different user than author](/assets/readme-images/delete-comment-other-user-logged-in.png)
+![SEO Keyword selection for metatag](/assets/readme-images/seo-4.png)
 
-Delete option view for different user than author of comment.
+Keyword selection for metatag.
 
+![SEO Keyword selection for metatag](/assets/readme-images/seo-5.png)
 
-- Responsive on all device sizes and has interactive elements.
+Keyword selection for metatag.
 
-    - Web, Ipad Air and Iphone 12 pro.
+![SEO Keyword selection for metatag](/assets/readme-images/seo-6.png)
 
-![Welcome image](/assets/readme-images/first-run.png)
+Keyword selection for metatag.
 
-Web.
+![SEO Keyword selection for metatag](/assets/readme-images/seo-7.png)
 
+Keyword selection for metatag.
 
-![Ipad Air view](/assets/readme-images/ipad-air.png)
+![SEO Keyword selection for metatag](/assets/readme-images/seo-8.png)
 
-Ipad.
+Keyword selection for metatag.
 
+![SEO Correct use of Alt attribute and use of external important webpage](/assets/readme-images/seo-9.png)
 
-![Iphone 12 pro view](/assets/readme-images/iphone-12-pro.png)
+Correct use of Alt attribute and use of external important webpage.
 
-Iphone 12 pro.
+![SEO robots.txt](/assets/readme-images/seo-11.png)
 
+robots.txt
 
-![Navbar open menu](/assets/readme-images/iphone-12-pro-open-menu.png)
+![SEO sitemap.xml](/assets/readme-images/seo-12.png)
 
-Navbar open menu.
+sitemap.xml    
 
-- Admin Back-end
-
-    - Allows the admin to do CRUD in the back-end of the site. with special effect in Comments and Events("Posts")
-
-![Admin image](/assets/readme-images/admin.png)
-
-Admin image.
-
-
-![Admin Comments section](/assets/readme-images/admin-comment.png)
-
-Admin Comments section.
-
-
-![Admin Events section](/assets/readme-images/admin-event.png)
-
-Admin Events section.
-
-
-![Admin Events edit section](/assets/readme-images/admin-event-edit.png)
-
-
-Admin Events edit section.
+- Security
+    - All environmental variables were connected in "Config Vars" in heroku, safe and secure place.
+        - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, EMAIL_HOST_PASS, EMAIL_HOST_USER, SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY and USE_AWS.
 
 
 ## Features Left to Implement

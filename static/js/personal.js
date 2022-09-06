@@ -40,7 +40,7 @@ $(document).ready(function(){
     var _size=$(".size").first().attr('product-size');
     var _price=$(".paper").first().attr('product-price');
     $('.size'+_size).show();
-    $('.size'+_size).first().addClass('active p');
+    $('.paper'+_size).first().addClass('active p');
     $(".product-price-variation").text(_price);
 
 
