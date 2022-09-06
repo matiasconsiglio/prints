@@ -18,13 +18,12 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
 
 #### External User's goal and Target Audience
 
-- Users have the possibility to select a desired print with desired size and paper type, also have the possibility to register in the e-commerce for order purchase history and easier delivery address information management.
+- Users have the possibility to select a desired print with desired size and paper type, and also have the possibility to register in the e-commerce for order purchase history and easier delivery address information management.
 - Enthusiastic people about professional analog photography.
 
 #### Site owner's goals
 
 - Futuro Berg wants a platform where he can show his art online and also be able to monetize from it.
-
 
 ### Scope Plane
 
@@ -48,30 +47,30 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
         - Manual testing with super user and normal user to check functionality.
 
 4. Account registration:
-    - As a site user I can receive a confirmation via email from my account registration so that I can know that was successfully created.
+    - As a site user I can receive a confirmation via email from my account registration so that I can know that it was successfully created.
         - Account management with Allauth working.
         - Manual testing with super user and normal user to check functionality.
 
 ##### Epic 2: Viewing and Navigating
 
 5. Prints list:
-    - As a site user and costumer I can view different prints so I can select some to purchase.
+    - As a site user and customer I can view different prints so I can select some to purchase.
         - Create models, views and urls for products.
         - Manual testing that the prints are shown.
 
 6. Prints details:
-    - As a site user and costumer I can see the information and details of each print so that I can see the description, rating, price, different images, choose size and type of paper.
+    - As a site user and customer I can see the information and details of each print so that I can see the description, rating, price, different images, choose size and type of paper.
         - Create product specs models, views and urls.
         - Manual testing that the prints specs are shown.
 
-7. Messages for user:
-    - As a site user and costumer I can see messages so that I can know and have feedback of my interaction with the site.
+7. Messages for users:
+    - As a site user and customer I can see messages so that I can know and have feedback of my interaction with the site.
         - Create toast for messages.
-        - Manual Test that messages works.
+        - Manual Test that messages work.
 
 8. Add print:
-    - As the store owner I can add a print to the store so that the costumers can buy it.
-        - Add both possibility to add prints in back and front end.
+    - As the store owner I can add a print to the store so that the customers can buy it.
+        - Add both possibilities to add prints in back and front end.
         - Manual testing both in front and back end.
 
 9. Edit/update print:
@@ -80,99 +79,138 @@ This E-commerce site, for the E-commerce Full Stack Project from Code Institute,
         - Manual testing both in front and back end.
 
 10. Delete prints:
-    - As a store owner I can delete a print so that I can remove the ones that are not longer available for sale.
+    - As a store owner I can delete a print so that I can remove the ones that are no longer available for sale.
+        - Allow deletion of prints in back end and front end.
+        - Manual testing.
 
 ##### Epic 3: Sorting and Searching
 
-11. Custom user profile:
+
+11. Sort prints:
+    - As a site user and custumor I can sort the prints by category so that I can easily choose the print I want.
+        - Sort option available in the menu around the whole site.
+        - Manual testing for the different categories.
+
+12. Search Engine:
+    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
+        - Search bar available in the menu around the whole site.
+        - Manual testing for name and description.
+
+##### Epic 4: Purchasing and Checkout
+
+13. Custom user profile:
     - As a site user I can have a personalised user profile so that I can review my purchase history, order confirmations and save my address and payment information.
         - Create models, views and urls for profile app.
         - Manual testing after checkout to see if everything works.
 
-12. Total cart price:
-    - As a site user and costumer I can see the total amount of my prints in the cart so that I know how much I'm about to spend.
+14. Total cart price:
+    - As a site user and customer I can see the total amount of my prints in the cart so that I know how much I'm about to spend.
         - Cart icon available through the site.
-        - Manual testing to check correct price shown.
+        - Manual testing to check the correct price shown.
 
-13. Search Engine:
+15. Print type selection:
+    - As a site user and customer I can select the print, its size and paper type so that I'm sure I'm selecting what I really want.
+        - Models, views, urls and jquery for showing different options to users.
+        - Manual testing for these options to work.
+
+16. View prints in cart:
+    - As a site user and customer I can view my prints selections in my cart so that I can see the total amount of the future purchase and all the prints which I'll get.
+        - Complete detail of quantity and print selection.
+        - Manual testing all the information shown.
+
+17. Modify cart:
+    - As a site user and customer I can modify the quantity of different prints in my cart, so that I can modify my final purchase before the checkout.
+        - Change quantity of selected print or delete a selected print from the cart.
+        - Manual testing for both options working.
+
+18. Payment information:
+    - As a site user and customer I can easily enter my payment details so that I can easily checkout and finish my purchase.
+        - Fluid connection between prints details, cart and check out.
+        - Manual testing.
+
+19. Checkout security:
     - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description.
+        - External card validator with Stripe.
+        - Webhooks for double insurance that the payments get processed correctly.
 
-14. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description
+20. Order confirmation:
+    - As a site user and customer I can view an order confirmation after making the purchase so that I can see that the purchase is done with any mistake.
+        - Pop up message confirmation.
+        - Checkout page with order details.
 
-15. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description.
+21. Confirmation email:
+    - As a site user and customer I can receive an email with my purchase confirmation and information so that I can have a record of what I've purchased
+        - Pop up message confirmation with customer email.
+        - Manual check.
 
-16. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description
 
-17. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description.
+### [Agile Methodology used to accomplish the goals from the project via User Stories](https://github.com/users/matiasconsiglio/projects/1)
 
-18. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description.
+### Scope Plane
 
-19. Search Engine:
-    - As a site user and customer I can search prints by description or name so I can choose the type of print I want.
-        - Search bar available in the menu around the whole site.
-        - Manual testing for name and description.
+![Entity Relationship Diagram](/assets/readme-images/entity-relationship-diagram.png)
 
-##### Epic 4: Purchashing and Checkout
+- Entity relationship diagram for relational databse schema
+    - This image shows the process, communication between apps and models to be able to accomplish the scope goals and accept the different tasks for all de user stories and their epics. 
+    - For this project "improvisation" was required in terms of coding, since to offer the option of different sizes and different types of paper for the same product/print, three new models were created in the beginning beyond category and product model. Product specs model, size mode and paper model and they connect as shown in the image. To connect these models to the bag app, Jquery is needed to manage the different option inputs from users from the front end connecting to the back end thanks to context.py from the bag app.
+    - From the other side, the User model that comes with Allauth is connected to UserProfile model from the profile app, this will allow the logged user to see, review order history and manage delivery address information.
+    - Order model is connected to user profile, this model allows anyway to sell to users not registered, and finally connected to OrderlineItem from checkout the app with the order number generated and all the details from the user.
+    - Interesting connection of all the models, views, functions and apps occurs in the model orderLineItem from checkout app. One that takes the information from the items being bought from bag_contents, especifically bag_items, that includes all the needed information to make a correct sale, with the correct item details, prices, types and at the same time with the order generated with the customer details. 
 
-13. Social Media:
-    - As a Site User I can interact with the event social media so that I can follow the different DJs and/or organisers.
+### Skeleton Plane
 
-14. View Media from Events:
-    - As a Site User I can see and/or listen to different media from the event so that I can understand and feel how the event was.
-
-### [Agile Methodology used to accomplish the goals from the project via User Stories](https://github.com/matiasconsiglio/project-4/projects/1)
-
-### Diagram for UX design
+- Diagram for UX design
 
 ![Diagram for Ux Design](/assets/readme-images/diagram.png)
 
+- Mock-up
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-1.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-2.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-3.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-4.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-5.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-6.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-7.png)
+
+![Mock-up for Ux Design](/assets/readme-images/mock-up-8.png) 
+
 - All the special pages for login, register, logout and update comment should share the same navbar and footer as the main view.
+
+### Surface Plane
+
+- Images were taken and given permission to use from the professoinal photographer Futuro Berg. All the prints and background are part of his talented job, so to make it more interesting for the view for users, a greyish tone of colors were used in the webpage giving space and attention to the prints themself in sale.
 
 ## Features
 
 ### Existing Features Tested Manually and Messages for User
 
--  Welcomes the user to the events blog "ΠΛΤΤ Sessions".
+-  Welcomes the user to the e-commerce "Prints" by Futuro Berg.
 
     - Has a Logo with a link to the home page.
     - Has a register and login option for the user in the navbar.
-    - Has a Home link to the home page.
-    - Shows the different events that have already happened and the ones to come.
-    - Shows the different likes each event has.
-    - Allows the user to click on "Session #number" to go inside each event and see different information and media from it.
-    - Show the social media from ΠΛΤΤ Sessions for users to be able to reach and follow.
-    - In case the user is logged in, the navbar won't show register and login, instead will show the option Logout.
+    - Has a link to Futuro's principal webpage.
+    - Has the biography of Futuro Berg.
+    - Has a button to shop prints.
+    - Has a search bar to search for print names or description.
+    - Has a expandable Print option to sort prints by category or by all prints.
+    - Has a bag/cart icon that redirects the user to the shopping bag with the items added until the moment.
+    - Has a text promotion for free delivery.
+    - Has a footer with link to facebook page for marketing, privacy policy and subscribe option to the site newsletter.
 
 ![First blog approach](/assets/readme-images/first-run.png)
 
-First blog approach.
-
-
-![Blog Logout](/assets/readme-images/first-run-logout.png)
-
-Blog log out option and message.
-
+Home page approach.
 
 - Register for User.
 
-    - Special design page that allows the user to register to ΠΛΤΤ Sessions.
+    - Special design page that allows the user to register to Prints.
     - Explanation to the user in case they already have and account, button option to go to sign in page.
     - Username, password and password confirmation required.
     - User email input as optional.
