@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-	$(".paper").hide();
 
     $(".size").on('click',function(){
 
@@ -31,17 +30,18 @@ $(document).ready(function(){
 		$(".paper-id").val(_id);
 	})
 
-	var _id=$(".paper").attr('paper-id');
+	$(".size").first().addClass('active s');
+	var _size=$(".size").first().attr('product-size');
+	$(".paper").hide();
+	$('.size'+_size).show();
+    $('.size'+_size).first().addClass('active p');
+	var _price=$('.size'+_size).first().attr('product-price');
+	$(".product-price-variation").text(_price);
 	var _id=$(".size").attr('size-id');
 	$(".size-id").val(_id);
+	var _id=$(".paper").attr('paper-id');
 	$(".paper-id").val(_id);
 
-	$(".size").first().addClass('active s');
-    var _size=$(".size").first().attr('product-size');
-    var _price=$(".paper").first().attr('product-price');
-    $('.size'+_size).show();
-    $('.size'+_size).first().addClass('active p');
-    $(".product-price-variation").text(_price);
 
     $('.btt-link').on('click',function() {
         document.body.scrollTop = 0; 
