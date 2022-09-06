@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	// $(".paper").hide();
+	$(".paper").hide();
 
     $(".size").on('click',function(){
 
