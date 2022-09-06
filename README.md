@@ -813,13 +813,19 @@ if 'USE_AWS' in os.environ:
 ![W3C HTML Validator](/assets/readme-images/html-validator.png)
 4 errors to be fixed and 4 warnings.
 
-### W3C CSS
+### Lighthouse
 
 - CSS
 ![lighthouse](/assets/readme-images/lighthouse.png)
 
 Performance low because of weight of images used for prints.
 In general the app works, but needs more automatic testing. Everything was tested manually.
+
+### Jquery
+
+- Jquery
+![Jquery](/assets/readme-images/jquery.png)
+
 
 
 ## Dependencies, frameworks, languages and django packages used
