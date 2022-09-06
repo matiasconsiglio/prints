@@ -388,13 +388,120 @@ Print added to cart plus pop-up cart message.
     - Order confirmation.
     - Check order in the profile view for loged in users.
 
+![Natural user login](/assets/readme-images/natural-user.png)
+
+Natural user success login.
+
+![Category sort](/assets/readme-images/category.png)
+
+Category sort.
+
+![Category indoor view](/assets/readme-images/category-indoor.png)
+
+Category indoor view.
+
+![Add to cart](/assets/readme-images/add-2-cart.png)
+
+Add 2 of the same print and specs to cart.
+
+![Search people prints](/assets/readme-images/search-for-people.png)
+
+Search people prints.
+
+![Search people prints view](/assets/readme-images/search-people-view.png)
+
+Search people prints view.
+
+![Select specs in people print](/assets/readme-images/add-one-people.png)
+
+Select specs in people print.
+
+![Add people print to cart](/assets/readme-images/add-people-cart.png)
+
+Add people print to cart.
+
+![Open cart](/assets/readme-images/open-cart.png)
+
+Open Cart.
+
+![Update quanitity](/assets/readme-images/update-quantity.png)
+
+Update quanitity.
+
+![Delete print](/assets/readme-images/delete-print.png)
+
+Delete print.
+
+![Check order](/assets/readme-images/check-order.png)
+
+Check-order.
+
+![Checkout](/assets/readme-images/checkout.png)
+
+Checkout.
+
+![Complete order](/assets/readme-images/complete-order.png)
+
+Complete order
+
+![Checkout success](/assets/readme-images/checkout-success.png)
+
+Checkout success.
+
+![Profile account](/assets/readme-images/profile-account.png)
+
+Checkout success.
+
+![Old order](/assets/readme-images/old-order.png)
+
+Old order.
+
 - Admin models
     - Size.
     - Paper.
     - Category.
     - Product.
     - ProductSpec.
-    - 
+    - User.
+    - Order.
+
+  ![User model](/assets/readme-images/user-model.png) 
+  ![User model 2](/assets/readme-images/user-model-2.png)
+
+User model for auth, from admin you can delete, select as primary or validate email. Also you can add name and surname. 
+
+  ![Order model](/assets/readme-images/order-model.png) 
+  ![User model 2](/assets/readme-images/order-model-att.png)
+
+Order model will show user, delivery information, order details and amount.
+
+  ![Category model](/assets/readme-images/model-category.png) 
+  ![Category model attributes](/assets/readme-images/model-category-att.png)
+
+Category model for 3 category options; indoor, street art and people. Inside each one you can select name and friendly name.
+
+  ![Product model](/assets/readme-images/product-model.png) 
+  ![Product model attributes](/assets/readme-images/product-model-att.png)
+
+Product model shows the sku, name, category and image, inside each product you can change category from category model, sku, name description and image file.
+
+  ![Size model](/assets/readme-images/size-model.png) 
+  ![Size model attributes](/assets/readme-images/size-model-att.png)
+
+Size model will show different sizes available, inside the model you can add more sizes with different names.
+
+  ![Paper model](/assets/readme-images/paper-model.png) 
+  ![Size model attributes](/assets/readme-images/paper-model-att.png)
+
+Paper model will show different paper types available, inside the model you can add more paper types with different names.
+
+  ![Product spec model](/assets/readme-images/spec-model.png) 
+  ![Product spec model attributes](/assets/readme-images/spec-model-att.png)
+
+Product Spec Model is the core with context.py from bag app in the functionality of the webpage.
+It will show the product chosen, paper and size from the other models. Finally it needs a price to be defined.
+Each print will have 4 different specs, there are 2 sizes and 2 types of paper. Price is only defined by the size of the paper. 
+With the help of Jquery when the user selects the attributes in the print details page, te correct data from product spec models goes to context.py from bag app, responsible of the correct input to the cart and future order checkout.
 
 - Marketing
     - Facebook page created for marketing purpose.
@@ -485,6 +592,9 @@ sitemap.xml
     - All environmental variables were connected in "Config Vars" in heroku, safe and secure place.
         - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, EMAIL_HOST_PASS, EMAIL_HOST_USER, SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY and USE_AWS.
 
+- Newsletter sign - up
+
+![Newsletter sign up](/assets/readme-images/newsletter.png)
 
 ## Features Left to Implement
 
@@ -690,50 +800,26 @@ if 'USE_AWS' in os.environ:
 ### PEP8
 
 - events/admin.py
-![PEP8 events admin.py](/assets/readme-images/pep8-adminpy.png)
-
-- events/apps.py
-![PEP8 events apps.py](/assets/readme-images/pep8-appspy.png)
-
-- events/forms.py
-![PEP8 events forms.py](/assets/readme-images/pep8-formspy.png)
-
-- events/models.py
-![PEP8 events models.py](/assets/readme-images/pep8-modelspy.png)
-
-- events/urls.py
-![PEP8 events urls.py](/assets/readme-images/pep8-urlspy.png)
-
-- events/views.py
-![PEP8 events views.py](/assets/readme-images/pep8-views.png)
-
-- subtevents/asgy.py
-![PEP8 subtevents asgy.py](/assets/readme-images/pep8-asgi.png)
-
-- subtevents/settings.py
-![PEP8 subtevents settings.py](/assets/readme-images/pep8-settingspy.png)
-
-- subtevents/urls.py
-![PEP8 subtevents urls.py](/assets/readme-images/pep8-urls2py.png)
-
-- subtevents/wsgi.py
-![PEP8 subtevents wsgi.py](/assets/readme-images/pep8-wsgipy.png)
-
-- manage.py
-![PEP8 manage.py](/assets/readme-images/pep8-managepy.png)
+![PEP8 Product model validator](/assets/readme-images/product-model-validator.png)
 
 ### W3C CSS
 
 - CSS
-![W3C CSS Validator](/assets/readme-images/w3c-css.png)
+![W3C CSS Validator](/assets/readme-images/css-validator.png)
 
 ### W3C HTML
 
 - HTML
 ![W3C HTML Validator](/assets/readme-images/html-validator.png)
+4 errors to be fixed and 4 warnings.
 
-- Lighthouse
-![Developers lighthouse](/assets/readme-images/lighthouse.png)
+### W3C CSS
+
+- CSS
+![lighthouse](/assets/readme-images/lighthouse.png)
+
+Performance low because of weight of images used for prints.
+In general the app works, but needs more automatic testing. Everything was tested manually.
 
 
 ## Dependencies, frameworks, languages and django packages used
