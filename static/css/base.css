@@ -135,10 +135,10 @@ body{
 
 .footer-fixed {
     position: absolute;
-    flex-grow: 1;
+    height: fit-content;
     bottom: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 1;
 }
 
 .arrow-primary {
