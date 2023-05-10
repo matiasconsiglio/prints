@@ -138,7 +138,6 @@ body{
     height: fit-content;
     bottom: 0;
     width: 100%;
-    z-index: 1;
 }
 
 .arrow-primary {
@@ -230,8 +229,8 @@ body{
     #mc_embed_signup{
         width:70%;
     }
-    .footer-top-space{
-        margin-top: 650px;
+    .bottom{
+        margin-bottom: 350px;
     }
 }
 @media (max-width: 450px){
@@ -294,9 +293,6 @@ body{
         width:70%;
     }
     .bottom{
-        height: 350px;
-    }
-    .footer-top-space{
-        margin-top: 700px;
+        margin-bottom: 350px;
     }
 }
