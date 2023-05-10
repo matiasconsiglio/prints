@@ -289,4 +289,7 @@ body{
     #mc_embed_signup{
         width:70%;
     }
+    .bottom{
+        height: 300px;
+    }
 }
