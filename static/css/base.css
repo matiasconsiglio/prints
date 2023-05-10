@@ -229,6 +229,9 @@ body{
     #mc_embed_signup{
         width:70%;
     }
+    .footer-top-space{
+        margin-top: 650px;
+    }
 }
 @media (max-width: 450px){
     .logo-small{
@@ -291,5 +294,8 @@ body{
     }
     .bottom{
         height: 350px;
+    }
+    .footer-top-space{
+        margin-top: 700px;
     }
 }
