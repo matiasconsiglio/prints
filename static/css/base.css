@@ -134,6 +134,7 @@ body{
 }
 
 .footer-fixed {
+    position: absolute;
     flex-grow: 1;
     bottom: 0;
     width: 100%;
