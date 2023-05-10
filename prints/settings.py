@@ -24,8 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'ot0shejuv^bjmd%6$#hth^n_1y*4ef%o^^2k@+s0vaih!h(b7d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# 'DEPLOYMENT' in os.environ
+DEBUG = 'DEPLOYMENT' in os.environ
 
 ALLOWED_HOSTS = ['prints-by-futuro-berg.herokuapp.com', 'localhost']
 
